@@ -24,8 +24,21 @@ function FormDiagnosis() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const postData = {
+      weight: parseFloat(formData.weight),
+      height: parseFloat(formData.height),
+      sleepDuration: parseFloat(formData.sleepDuration),
+      qualityOfSleep: parseInt(formData.qualityOfSleep),
+      physicalActivityLevel: parseFloat(formData.physicalActivityLevel),
+      bloodPressure: formData.bloodPressure,
+      stressLevel: parseInt(formData.stressLevel),
+      heartRate: parseFloat(formData.heartRate),
+      dailySteps: parseInt(formData.dailySteps)
+    };
+
     axios
-      .post('/diagnosis', formData, {
+      .post('/diagnosis', postData, {
         headers: { Authorization: 'Bearer ' + localStorage.getItem('token') },
       })
       .then((response) => {
@@ -34,6 +47,7 @@ function FormDiagnosis() {
       })
       .catch((error) => {
         console.log('Error adding diagnosis:', error);
+        alert('Failed to add diagnosis. Please check your input and try again.');
       });
   };
 

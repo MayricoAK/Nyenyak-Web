@@ -17,6 +17,21 @@ function DiagnosisDetail() {
       });
   }, [id]);
 
+  const handleDelete = () => {
+    axios
+      .delete(`/diagnosis/${diagnosis.id}`, {
+        headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
+      })
+      .then((response) => {
+        console.log('Diagnosis deleted successfully');
+        // Tambahan logika di sini jika diperlukan setelah penghapusan
+      })
+      .catch((error) => {
+        console.error('Error deleting diagnosis:', error);
+        // Handle error jika diperlukan
+      });
+  };
+
   if (!diagnosis) {
     return <div>Loading...</div>;
   }
@@ -34,6 +49,9 @@ function DiagnosisDetail() {
       <p><strong>Sleep Duration:</strong> {diagnosis.sleepDuration}</p>
       <p><strong>Stress Level:</strong> {diagnosis.stressLevel}</p>
       <p><strong>Solution:</strong> {diagnosis.solution}</p>
+
+      {/* Button to delete diagnosis */}
+      <button onClick={handleDelete} className="btn btn-danger mt-3">Delete Diagnosis</button>
     </div>
   );
 }
