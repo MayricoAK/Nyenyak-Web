@@ -39,9 +39,9 @@ function Login() {
       if (error.response) {
         const { data } = error.response;
         if (data.errors) {
-          setValidationErrors(data.errors);
+          setValidationErrors(data.message);
         } else if (data.error) {
-          setValidationErrors({ general: data.error });
+          setValidationErrors({ general: data.error, message: data.message });
         }
       }
 
@@ -59,7 +59,7 @@ function Login() {
               <form onSubmit={loginAction}>
                 {validationErrors.general && (
                   <p className="text-center">
-                    <small className="text-danger">{validationErrors.general}</small>
+                    <small className="text-danger">{validationErrors.message}</small>
                   </p>
                 )}
 
