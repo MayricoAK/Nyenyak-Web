@@ -8,31 +8,11 @@ import { useNavigate } from 'react-router-dom';
 
 function NavScrollExample() {
     const navigate = useNavigate();
-    const handleUpdatePassword= async () => {
-        navigate('/');
-      };
-    const handleUpdateUser = async () => {
-        try {
-          await axios.post('/auth/logout');
-          localStorage.removeItem('token');
-          navigate('/');
-        } catch (error) {
-          console.log('Error logging out:', error);
-        }
-      };
-    const handleDetail = async () => {
-        try {
-          await axios.post('/auth/logout');
-          localStorage.removeItem('token');
-          navigate('/');
-        } catch (error) {
-          console.log('Error logging out:', error);
-        }
-      };
     const handleLogout = async () => {
         try {
-          await axios.post('/auth/logout');
+          const response = await axios.post('/auth/logout');
           localStorage.removeItem('token');
+          alert(response.data.message)
           navigate('/');
         } catch (error) {
           console.log('Error logging out:', error);
@@ -51,8 +31,8 @@ function NavScrollExample() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#">Home</Nav.Link>
-            <Nav.Link href="#">Riwayat</Nav.Link>
+            <Nav.Link onClick={() => navigate(`/dashboard`)}>Home</Nav.Link>
+            <Nav.Link onClick={() => navigate(`/diagnosis`)}>Riwayat</Nav.Link>
           </Nav>
           <Nav>
                 <NavDropdown title="Profile" id="navbarScrollingDropdown">

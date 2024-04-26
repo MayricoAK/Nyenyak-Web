@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Layout from '../components/Layout';
+import Navbar from '../components/Navbar';
 
 function UpdateUsers() {
   
@@ -93,7 +95,10 @@ function UpdateUsers() {
   
 
   return (
-    <div className="container mt-5">
+    <Layout>
+      <div className="col-12">
+        <Navbar />
+        <div className="container mt-5">
         <h2 className="text-center mb-4">Update Detail Pengguna</h2>
         <form onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -117,6 +122,7 @@ function UpdateUsers() {
               value={formData.gender}
               onChange={handleInputChange}
             />
+            
           </div>
           <div className="mb-3">
             <label htmlFor="birthDate" className="form-label">Birth Date</label>
@@ -129,10 +135,13 @@ function UpdateUsers() {
               onChange={handleInputChange}
             />
           </div>
-          <button onClick={() => navigate('/profile')} className="btn btn-info mt-3">Back</button>
+          <button onClick={() => navigate('/profile')} className="btn btn-secondary mt-3">Back</button>
           <button type="submit" className="btn btn-primary mt-3">Update</button>
         </form>
     </div>
+      </div>
+    </Layout>
+    
 
   );
 }

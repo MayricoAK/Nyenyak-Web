@@ -8,6 +8,7 @@ import FormDiagnosis from './pages/FormDiagnosis';
 import UserProfile from './pages/Profile';
 import UpdateUsers from './pages/UpdateUsers';
 import UpdatePassword from './pages/UpdatePassword';
+import DiagnosisHistory from './pages/Diagnosis';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/diagnosis/:id" element={<DiagnosisDetail />} /> 
+        <Route path="/diagnosis" element={<DiagnosisHistory />} />
         <Route path="/form-diagnosis" element={<FormDiagnosis />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/profile/update" element={<UpdateUsers />} />

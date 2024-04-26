@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Layout from '../components/Layout';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 function UserProfile() {
   const navigate = useNavigate();
@@ -32,8 +33,9 @@ function UserProfile() {
 
   return (
     <Layout>
-          
-      <div className="container mt-5">
+      <div className="col-12">
+        <Navbar />
+        <div className="container mt-5">
         <h2 className="text-center">User Profile</h2>
         <div className="text-center mt-3">
             <button onClick={handleUpdatePassword} className="btn btn-primary">
@@ -48,9 +50,10 @@ function UserProfile() {
             <p className="card-text">Gender: {user.gender}</p>
             <p className="card-text">Birth Date: {user.birthDate}</p>
             <button onClick={handlePutUser} className="btn btn-primary mt-3">Update Profile</button>
-            <button onClick={() => navigate('/dashboard')} className="btn btn-info mt-3">Back to Dashboard</button>
+            <button onClick={() => navigate('/dashboard')} className="btn btn-secondary mt-3">Back to Dashboard</button>
           </div>
         </div>
+      </div>
       </div>
     </Layout>
   );

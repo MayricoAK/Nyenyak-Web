@@ -9,7 +9,6 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 function Dashboard() {
   const navigate = useNavigate();
-  const [user, setUser] = useState({});
   const [diagnoses, setDiagnoses] = useState([]);
 
   useEffect(() => {
@@ -20,7 +19,6 @@ function Dashboard() {
           return;
         }
         
-        await getUser();
         await getDiagnoses();
       } catch (error) {
         console.log('Error fetching data:', error);
@@ -29,17 +27,6 @@ function Dashboard() {
 
     fetchData();
   }, []);
-
-  const getUser = async () => {
-    try {
-      const response = await axios.get('/users', {
-        headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
-      });
-      setUser(response.data.user);
-    } catch (error) {
-      console.log('Error fetching user data:', error);
-    }
-  };
 
   const getDiagnoses = async () => {
     try {
@@ -61,7 +48,7 @@ function Dashboard() {
       <div className="row justify-content-md-center">
         <div className="col-12">
           <Navbar /> {/* Render the Navbar component */}
-          <h2 className="text-center mt-5">Welcome, {user.name || 'Guest'}!</h2>
+          <h2 className="text-center mt-5">Riwayat Diagnosis</h2>
           <div className="text-center mt-3">
             <button onClick={handleAddDiagnosis} className="btn btn-primary">
               Tambah Diagnosis
@@ -69,7 +56,6 @@ function Dashboard() {
           </div>
           {/* Render Diagnosis Data */}
           <div className="mt-5">
-            <h3 className="text-center">Diagnosis History</h3>
             <ListGroup as="ol" numbered>
             {diagnoses.map((diagnosis) => (
             <ListGroup.Item key={diagnosis.id} action onClick={() => navigate(`/diagnosis/${diagnosis.id}`)} as="li" className="d-flex justify-content-between align-items-start">

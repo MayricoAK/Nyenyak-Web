@@ -4,6 +4,9 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 
+import Layout from '../components/Layout';
+import Navbar from '../components/Navbar';
+
 function UpdatePassword() {
   const navigate = useNavigate();
   const [newPassword, setNewPassword] = useState('');
@@ -56,7 +59,10 @@ function UpdatePassword() {
 }
 
   return (
-    <div className="container mt-5">
+    <Layout>
+      <div className="col-12">
+        <Navbar />
+        <div className="container mt-5">
       <h2 className="text-center">Update Password</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="newPassword">
@@ -81,13 +87,15 @@ function UpdatePassword() {
         </Form.Group>
         {errorMessage && <p className="text-danger">{errorMessage}</p>}
         {successMessage && <p className="text-success">{successMessage}</p>}
-        <Button onClick={() => navigate('/profile')} className="btn btn-info">Back</Button>
+        <Button onClick={() => navigate('/profile')} className="btn btn-secondary">Back</Button>
         <Button variant="primary" type="submit">
           Update Password
         </Button>
         
       </Form>
     </div>
+      </div>
+    </Layout>
   );
 }
 

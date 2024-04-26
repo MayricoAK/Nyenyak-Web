@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import Layout from '../components/Layout';
+import Table from 'react-bootstrap/Table';
+
 
 function DiagnosisDetail() {
   const { id } = useParams();
@@ -60,22 +64,64 @@ function DiagnosisDetail() {
   }
 
   return (
-    <div>
-      <h2>Diagnosis Detail</h2>
-      <p><strong>Date:</strong> {diagnosis.date}</p>
-      <p><strong>BMI Category:</strong> {diagnosis.BMIcategory}</p>
-      <p><strong>Blood Pressure:</strong> {diagnosis.bloodPressure}</p>
-      <p><strong>Heart Rate:</strong> {diagnosis.heartRate}</p>
-      <p><strong>Physical Activity Level:</strong> {diagnosis.physicalActivityLevel}</p>
-      <p><strong>Quality of Sleep:</strong> {diagnosis.qualityOfSleep}</p>
-      <p><strong>Sleep Disorder:</strong> {diagnosis.sleepDisorder}</p>
-      <p><strong>Sleep Duration:</strong> {diagnosis.sleepDuration}</p>
-      <p><strong>Stress Level:</strong> {diagnosis.stressLevel}</p>
-      <p><strong>Solution:</strong> {diagnosis.solution}</p>
+    
+    <Layout>
+      <div className="row justify-content-md-center">
+        <div className="col-12">
+        <Navbar />
+        <h2>Diagnosis Detail</h2>
+        <Table responsive="sm">
+        <tbody>
+          <tr>
+            <td><b>{diagnosis.date}</b></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Hasil Diagnosis</td>
+            <td>{diagnosis.sleepDisorder}</td>
+          </tr>
+          <tr>
+            <td>Kategori BMI</td>
+            <td>{diagnosis.BMIcategory}</td>
+          </tr>
 
-      <button onClick={handleDelete} className="btn btn-danger mt-3">Delete Diagnosis</button>
-      <button onClick={() => navigate('/dashboard')} className="btn btn-info mt-3">Back to Dashboard</button>
-    </div>
+          <tr>
+            <td>Tekanan Darah</td>
+            <td>{diagnosis.bloodPressure}</td>
+          </tr>
+          <tr>
+            <td>Detak Jantung</td>
+            <td>{diagnosis.heartRate}</td>
+          </tr>
+          <tr>
+            <td>Durasi Aktivitas</td>
+            <td>{diagnosis.physicalActivityLevel} menit</td>
+          </tr>
+          <tr>
+            <td>Tingkat Kualitas Tidur</td>
+            <td>{diagnosis.qualityOfSleep}/10</td>
+          </tr>
+          
+          <tr>
+            <td>Durasi Tidur</td>
+            <td>{diagnosis.sleepDuration} jam</td>
+          </tr>
+          <tr>
+            <td>Tingkat Stress</td>
+            <td>{diagnosis.stressLevel}</td>
+          </tr>
+          <tr>
+            <td>Solusi</td>
+            <td>{diagnosis.solution}</td>
+          </tr>
+        </tbody>
+        </Table>
+
+        <button onClick={handleDelete} className="btn btn-danger mt-3">Delete Diagnosis</button>
+        <button onClick={() => navigate('/dashboard')} className="btn btn-secondary mt-3">Back to Dashboard</button>
+        </div>
+      </div>
+    </Layout>
   );
 }
 

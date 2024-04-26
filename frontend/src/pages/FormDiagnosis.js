@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
+import Navbar from '../components/Navbar';
 
 function FormDiagnosis() {
   const navigate = useNavigate();
@@ -103,7 +104,8 @@ function FormDiagnosis() {
 
   return (
     <Layout>
-      <div className="container mt-5">
+      <div className="col-12">
+        <Navbar />
         <h2 className="text-center mb-4">Tambah Diagnosis Baru</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
@@ -257,13 +259,12 @@ function FormDiagnosis() {
               required
             />
           </div>
-
+          <button onClick={() => navigate('/dashboard')} className="btn btn-secondary" >Back to Dashboard</button>
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
-          <button onClick={() => navigate('/dashboard')} className="btn btn-info" >Back to Dashboard</button><br></br>
+          
         </form>
-        
       </div>
     </Layout>
   );
