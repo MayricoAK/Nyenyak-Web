@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
+import Navbar from '../components/Navbar'; // Import Navbar component
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -48,16 +49,6 @@ function Dashboard() {
     }
   };
 
-  const logoutAction = async () => {
-    try {
-      await axios.post('/auth/logout');
-      localStorage.removeItem('token');
-      navigate('/');
-    } catch (error) {
-      console.log('Error logging out:', error);
-    }
-  };
-
   const handleAddDiagnosis = () => {
     navigate('/form-diagnosis');
   };
@@ -66,25 +57,7 @@ function Dashboard() {
     <Layout>
       <div className="row justify-content-md-center">
         <div className="col-12">
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container-fluid">
-              <a className="navbar-brand" href="#">
-                Dashboard
-              </a>
-              <div className="d-flex">
-                <ul className="navbar-nav">
-                  <li className="nav-item">
-                    <Link to="/profile" className="nav-link" aria-current="page">Profile</Link>
-                  </li>
-                  <li className="nav-item">
-                    <a onClick={logoutAction} className="nav-link" aria-current="page" href="#">
-                      Logout
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+          <Navbar /> {/* Render the Navbar component */}
           <h2 className="text-center mt-5">Welcome, {user.name || 'Guest'}!</h2>
           <div className="text-center mt-3">
             <button onClick={handleAddDiagnosis} className="btn btn-primary">
