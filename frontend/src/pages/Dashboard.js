@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 
 function Dashboard() {
@@ -74,9 +74,7 @@ function Dashboard() {
               <div className="d-flex">
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <a className="nav-link" aria-current="page" href="#">
-                      Profile
-                    </a>
+                    <Link to="/profile" className="nav-link" aria-current="page">Profile</Link>
                   </li>
                   <li className="nav-item">
                     <a onClick={logoutAction} className="nav-link" aria-current="page" href="#">
