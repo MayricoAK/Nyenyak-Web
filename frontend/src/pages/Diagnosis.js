@@ -71,6 +71,9 @@ function Dashboard() {
             ))}
             </ListGroup>
           </div>
+          <p className="text-left">
+            <button onClick={() => navigate('/dashboard')} className="btn btn-secondary mt-3">Dashboard</button>
+          </p>
         </div>
       </div>
     </Layout>

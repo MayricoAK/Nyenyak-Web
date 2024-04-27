@@ -6,6 +6,8 @@ import Navbar from '../components/Navbar';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { BiInfoCircle } from 'react-icons/bi';
+import Table from 'react-bootstrap/Table';
+import { Form } from 'react-bootstrap';
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -138,176 +140,224 @@ function FormDiagnosis() {
     <Layout>
       <div className="col-12">
         <Navbar />
+        <div className="row justify-content-md-center mt-5">
         <h2 className="text-center mb-4">Tambah Diagnosis Baru</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3 d-flex align-items-center">
-            <label htmlFor="weight" className="form-label me-2">
-              Berat Badan (kg)
-            </label>
-            <input
-              type="number"
-              placeholder="Masukkan berat badan Anda (kg)"
-              className="form-control me-2"
-              id="weight"
-              name="weight"
-              value={formData.weight}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className="mb-3 d-flex align-items-center">
-            <label htmlFor="height" className="form-label me-2">
-            Tinggi Badan (cm)
-            </label>
-            <input
-              type="number"
-              placeholder="Masukkan tinggi badan Anda (cm)"
-              className="form-control"
-              id="height"
-              name="height"
-              value={formData.height}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className="mb-3 d-flex align-items-center">
-            <label htmlFor="sleepDuration" className="form-label me-2">
-              Durasi Tidur (jam)
-            </label>
-            <input
-              type="number"
-              placeholder="Masukkan durasi tidur Anda"
-              step="0.1"
-              className="form-control"
-              id="sleepDuration"
-              name="sleepDuration"
-              value={formData.sleepDuration}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className="mb-3 d-flex align-items-center">
-            <label htmlFor="physicalActivityLevel" className="form-label me-2">
-              Durasi Aktivitas Fisik dalam sehari (jam)
-            </label>
-            <input
-              type="number"
-              placeholder="Masukkan durasi kegiatan fisik Anda dalam sehari (jam)"
-              step="0.1"
-              className="form-control"
-              id="physicalActivityLevel"
-              name="physicalActivityLevel"
-              value={formData.physicalActivityLevel}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className="mb-3 d-flex align-items-center">
-            <label htmlFor="qualityOfSleep" className="form-label me-2">
-              Kualitas Tidur
-            </label>
-            <input
-              type="number"
-              placeholder="Masukkan penilaian subyektif terhadap kualitas tidur Anda (1-10)"
-              min="1"
-              max="10"
-              className="form-control"
-              id="qualityOfSleep"
-              name="qualityOfSleep"
-              value={formData.qualityOfSleep}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className="mb-3 d-flex align-items-center">
-            <label htmlFor="stressLevel" className="form-label me-2">
-              Tingkat Stress
-            </label>
-            <input
-              type="number"
-              placeholder="Masukkan penilaian subyektif terhadap tingkat stress Anda (1-10)"
-              min="1"
-              max="10"
-              className="form-control"
-              id="stressLevel"
-              name="stressLevel"
-              value={formData.stressLevel}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className="mb-3 d-flex align-items-center">
-            <label htmlFor="bloodPressure" className="form-label me-2">
-              Tekanan Darah
-            </label>
-            <Button variant="link" onClick={() => setModalShow(true)}>
-              <BiInfoCircle />
-            </Button>
-            <select
-              ref={selectRef}
-              className="form-control"
-              placeholder="Masukkan jenis tekanan darah yang Anda miliki"
-              id="bloodPressure"
-              name="bloodPressure"
-              value={formData.bloodPressure}
-              onChange={handleInputChange}
-              onClick={handleSelectClick}
-              required
-            >
-              {bloodPressureOptions.map((option) => (
-                <option
-                  key={option.value}
-                  value={option.value}
-                  hidden={option.hidden}
-                >
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="mb-3 d-flex align-items-center">
-            <label htmlFor="heartRate" className="form-label me-2">
-              Detak Jantung (bpm)
-            </label>
-            <input
-              type="number"
-              placeholder="Masukkan detak jantung Anda dalam satu menit (bpm)"
-              className="form-control"
-              id="heartRate"
-              name="heartRate"
-              value={formData.heartRate}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className="mb-3 d-flex align-items-center">
-            <label htmlFor="dailySteps" className="form-label me-2">
-              Langkah yang ditempuh dalam sehari
-            </label>
-            <input
-              type="number"
-              placeholder="Masukkan jumlah langkah harian Anda"
-              className="form-control"
-              id="dailySteps"
-              name="dailySteps"
-              value={formData.dailySteps}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          <button onClick={() => navigate('/dashboard')} className="btn btn-secondary" >Kembali</button>
-
-          <MyVerticallyCenteredModal
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-          />
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-          
-        </form>
+        <div className="col-10">
+        <Form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <Table borderless responsive>
+            <tbody>
+              <tr>
+                <td>Berat Badan</td>
+                <td colSpan={2}>
+                  <input
+                    type="number"
+                    placeholder="Masukkan berat badan Anda (kg)"
+                    className="form-control me-2"
+                    id="weight"
+                    name="weight"
+                    value={formData.weight}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Tinggi Badan</td>
+                <td colSpan={2}>
+                <input
+                  type="number"
+                  placeholder="Masukkan tinggi badan Anda (cm)"
+                  className="form-control"
+                  id="height"
+                  name="height"
+                  value={formData.height}
+                  onChange={handleInputChange}
+                  required
+                />
+                </td>
+              </tr>
+              <tr>
+                <td>Durasi Tidur</td>
+                <td colSpan={2}>
+                <input
+                  type="number"
+                  placeholder="Masukkan durasi tidur Anda"
+                  step="0.1"
+                  className="form-control"
+                  id="sleepDuration"
+                  name="sleepDuration"
+                  value={formData.sleepDuration}
+                  onChange={handleInputChange}
+                  required
+                />
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Durasi Aktivitas Fisik</td>
+                <td colSpan={2}>
+                <input
+                  type="number"
+                  placeholder="Masukkan durasi kegiatan fisik Anda dalam sehari (jam)"
+                  step="0.1"
+                  className="form-control"
+                  id="physicalActivityLevel"
+                  name="physicalActivityLevel"
+                  value={formData.physicalActivityLevel}
+                  onChange={handleInputChange}
+                  required
+                />
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Penilaian Kualitas Tidur diri (1-10)</td>
+                <td>
+                <input
+                  size='30%'
+                  type="number"
+                  placeholder="Secara subyektif (1-10)"
+                  min="1"
+                  max="10"
+                  className="form-control"
+                  id="qualityOfSleep"
+                  name="qualityOfSleep"
+                  value={formData.qualityOfSleep}
+                  onChange={handleInputChange}
+                  required
+                />
+                </td>
+                <td>
+                  <Form.Control
+                    type="range"
+                    min="1"
+                    max="10"
+                    className="form-control mb-3"
+                    id="qualityOfSleep"
+                    name="qualityOfSleep"
+                    value={formData.qualityOfSleep}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Penilaian Tingkat Stress diri (1-10)</td>
+                <td>
+                <input
+                  type="number"
+                  placeholder="Secara subyektif (1-10)"
+                  min="1"
+                  max="10"
+                  className="form-control"
+                  id="stressLevel"
+                  name="stressLevel"
+                  value={formData.stressLevel}
+                  onChange={handleInputChange}
+                  required
+                />
+                </td>
+                <td>
+                <Form.Control
+                    type="range"
+                    min="1"
+                    max="10"
+                    className="form-control mb-3"
+                    id="stressLevel"
+                    name="stressLevel"
+                    value={formData.stressLevel}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Tekanan Darah
+                  <Button variant="link" onClick={() => setModalShow(true)}>
+                    <BiInfoCircle />
+                  </Button>
+                </td>
+                <td colSpan={2}>
+                  <select
+                    ref={selectRef}
+                    className="form-control"
+                    placeholder="Masukkan jenis tekanan darah yang Anda miliki"
+                    id="bloodPressure"
+                    name="bloodPressure"
+                    value={formData.bloodPressure}
+                    onChange={handleInputChange}
+                    onClick={handleSelectClick}
+                    required
+                  >
+                    {bloodPressureOptions.map((option) => (
+                      <option
+                        key={option.value}
+                        value={option.value}
+                        hidden={option.hidden}
+                      >
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Detak Jantung</td>
+                <td colSpan={2}>
+                <input
+                  type="number"
+                  placeholder="Masukkan detak jantung Anda dalam satu menit (bpm)"
+                  className="form-control"
+                  id="heartRate"
+                  name="heartRate"
+                  value={formData.heartRate}
+                  onChange={handleInputChange}
+                  required
+                />
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Jumlah Langkah Harian</td>
+                <td colSpan={2}>
+                <input
+                  type="number"
+                  placeholder="Masukkan jumlah langkah harian Anda"
+                  className="form-control"
+                  id="dailySteps"
+                  name="dailySteps"
+                  value={formData.dailySteps}
+                  onChange={handleInputChange}
+                  required
+                />
+                </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                <button onClick={() => navigate('/dashboard')} className="btn btn-secondary" >Kembali</button>
+                <button type="submit" className="btn btn-primary">
+                  Submit
+                </button>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </Table>
+        </div>
+        </Form>
+        </div>
+        </div>
       </div>
+              <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+              />
     </Layout>
   );
 }

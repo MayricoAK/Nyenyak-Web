@@ -3,6 +3,7 @@ import axios from 'axios';
 import Layout from '../components/Layout';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Table from 'react-bootstrap/Table';
 
 function UserProfile() {
   const navigate = useNavigate();
@@ -35,25 +36,45 @@ function UserProfile() {
     <Layout>
       <div className="col-12">
         <Navbar />
-        <div className="container mt-5">
-        <h2 className="text-center">User Profile</h2>
-        <div className="text-center mt-3">
-            <button onClick={handleUpdatePassword} className="btn btn-primary">
-              Update Password
-            </button>
-          </div>
-        <div className="card mt-3">
-          <div className="card-body">
-            <h5 className="card-title">Name: {user.name}</h5>
-            <p className="card-text">Email: {user.email}</p>
-            <p className="card-text">Age: {user.age}</p>
-            <p className="card-text">Gender: {user.gender}</p>
-            <p className="card-text">Birth Date: {user.birthDate}</p>
-            <button onClick={handlePutUser} className="btn btn-primary mt-3">Update Profile</button>
-            <button onClick={() => navigate('/dashboard')} className="btn btn-secondary mt-3">Back to Dashboard</button>
+        <div className="row justify-content-md-center mt-5">
+          <div className="col-6">
+            <div className="container">
+              <h2 className="text-center">Detail Pengguna, {user.name}</h2>
+                <div className="card mt-3">
+                  <div className="card-body">
+                  <Table responsive>
+                    <tr>
+                      <td>Nama Lengkap</td>
+                      <td>{user.name}</td>
+                    </tr>
+                    <tr>
+                      <td>Email</td>
+                      <td>{user.email}</td>
+                    </tr>
+                    <tr>
+                      <td>Umur</td>
+                      <td>{user.age} tahun</td>
+                    </tr>
+                    <tr>
+                      <td>Jenis Kelamin</td>
+                      <td>{user.gender}</td>
+                    </tr>
+                    <tr>
+                      <td>Tanggal Lahir</td>
+                      <td>{user.birthDate}</td>
+                    </tr>
+                  </Table>
+                  <p className="text-center">
+                    <button onClick={() => navigate('/dashboard')} className="btn btn-secondary mt-3">Dashboard</button>
+                    <button onClick={handlePutUser} className="btn btn-primary mt-3">Ubah Detail</button>
+                    <button onClick={handleUpdatePassword} className="btn btn-danger mt-3"> Ubah Kata Sandi </button>
+                  </p>
+                    
+                  </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     </Layout>
   );

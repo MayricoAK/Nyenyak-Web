@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function NavScrollExample() {
+  
     const navigate = useNavigate();
     const handleLogout = async () => {
         try {
@@ -21,7 +22,7 @@ function NavScrollExample() {
 
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary" sticky='top'>
       <Container fluid>
         <Navbar.Brand onClick={() => navigate(`/dashboard`)}>Nyenyak</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -36,9 +37,9 @@ function NavScrollExample() {
           </Nav>
           <Nav>
                 <NavDropdown title="Profile" id="navbarScrollingDropdown">
-                    <NavDropdown.Item onClick={() => navigate(`/profile`)}>Detail User</NavDropdown.Item>
-                    <NavDropdown.Item onClick={() => navigate(`/profile/update`)}>Update Detail</NavDropdown.Item>
-                    <NavDropdown.Item onClick={() => navigate(`/profile/update-password`)}>Update Password</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => navigate(`/profile`)}>Detail Pengguna</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => navigate(`/profile/update`)}>Ubah Detail</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => navigate(`/profile/update-password`)}>Ubah Kata Sandi</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item onClick={handleLogout}>Logout</NavDropdown.Item>
                 </NavDropdown>

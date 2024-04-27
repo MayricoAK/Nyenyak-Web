@@ -69,13 +69,9 @@ function DiagnosisDetail() {
       <div className="row justify-content-md-center">
         <div className="col-12">
         <Navbar />
-        <h2>Detail Diagnosis</h2>
-        <Table responsive="sm">
+        <h2>Detail Diagnosis ({diagnosis.date})</h2>
+        <Table responsive="sm" striped>
         <tbody>
-          <tr>
-            <td><b>{diagnosis.date}</b></td>
-            <td></td>
-          </tr>
           <tr>
             <td>Hasil Diagnosis</td>
             <td><b>{diagnosis.sleepDisorder}</b></td>
@@ -102,11 +98,11 @@ function DiagnosisDetail() {
           </tr>
           <tr>
             <td>Tingkat Kualitas Tidur</td>
-            <td>{diagnosis.qualityOfSleep}%</td>
+            <td>{diagnosis.qualityOfSleep}0 %</td>
           </tr>
           <tr>
             <td>Tingkat Stress</td>
-            <td>{diagnosis.stressLevel}%</td>
+            <td>{diagnosis.stressLevel}0 %</td>
           </tr>
           <tr>
             <td>Solusi</td>
@@ -114,9 +110,9 @@ function DiagnosisDetail() {
           </tr>
         </tbody>
         </Table>
-
-        <button onClick={handleDelete} className="btn btn-danger mt-3">Hapus Diagnosis</button>
         <button onClick={() => navigate('/dashboard')} className="btn btn-secondary mt-3">Kembali</button>
+        <button onClick={handleDelete} className="btn btn-danger mt-3">Hapus Diagnosis</button>
+        
         </div>
       </div>
     </Layout>
