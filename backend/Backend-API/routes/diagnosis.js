@@ -40,8 +40,6 @@ router.get('/', async (req, res) => {
       const data = snapshot.val();
       const diagnoses = data ? Object.values(data) : [];
       res.json(diagnoses);
-      // Lakukan sesuatu dengan data yang telah diurutkan
-      console.log(diagnoses);
     });
   } catch (error) {
     res.status(500).json({ status: 'failed', message: 'Terjadi kesalahan ketika mengambil data diagnosis' });
