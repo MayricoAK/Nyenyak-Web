@@ -69,7 +69,7 @@ function DiagnosisDetail() {
       <div className="row justify-content-md-center">
         <div className="col-12">
         <Navbar />
-        <h2>Diagnosis Detail</h2>
+        <h2>Detail Diagnosis</h2>
         <Table responsive="sm">
         <tbody>
           <tr>
@@ -78,37 +78,35 @@ function DiagnosisDetail() {
           </tr>
           <tr>
             <td>Hasil Diagnosis</td>
-            <td>{diagnosis.sleepDisorder}</td>
+            <td><b>{diagnosis.sleepDisorder}</b></td>
           </tr>
           <tr>
-            <td>Kategori BMI</td>
-            <td>{diagnosis.BMIcategory}</td>
-          </tr>
-
-          <tr>
-            <td>Tekanan Darah</td>
-            <td>{diagnosis.bloodPressure}</td>
-          </tr>
-          <tr>
-            <td>Detak Jantung</td>
-            <td>{diagnosis.heartRate}</td>
+            <td>Durasi Tidur</td>
+            <td>{diagnosis.sleepDuration} jam</td>
           </tr>
           <tr>
             <td>Durasi Aktivitas</td>
             <td>{diagnosis.physicalActivityLevel} menit</td>
           </tr>
           <tr>
-            <td>Tingkat Kualitas Tidur</td>
-            <td>{diagnosis.qualityOfSleep}/10</td>
+            <td>Kategori BMI</td>
+            <td>{diagnosis.BMIcategory}</td>
           </tr>
-          
           <tr>
-            <td>Durasi Tidur</td>
-            <td>{diagnosis.sleepDuration} jam</td>
+            <td>Tekanan Darah</td>
+            <td>{diagnosis.bloodPressure}</td>
+          </tr>
+          <tr>
+            <td>Detak Jantung</td>
+            <td>{diagnosis.heartRate} bpm</td>
+          </tr>
+          <tr>
+            <td>Tingkat Kualitas Tidur</td>
+            <td>{diagnosis.qualityOfSleep}%</td>
           </tr>
           <tr>
             <td>Tingkat Stress</td>
-            <td>{diagnosis.stressLevel}</td>
+            <td>{diagnosis.stressLevel}%</td>
           </tr>
           <tr>
             <td>Solusi</td>
@@ -117,8 +115,8 @@ function DiagnosisDetail() {
         </tbody>
         </Table>
 
-        <button onClick={handleDelete} className="btn btn-danger mt-3">Delete Diagnosis</button>
-        <button onClick={() => navigate('/dashboard')} className="btn btn-secondary mt-3">Back to Dashboard</button>
+        <button onClick={handleDelete} className="btn btn-danger mt-3">Hapus Diagnosis</button>
+        <button onClick={() => navigate('/dashboard')} className="btn btn-secondary mt-3">Kembali</button>
         </div>
       </div>
     </Layout>

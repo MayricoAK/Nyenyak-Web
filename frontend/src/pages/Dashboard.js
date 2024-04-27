@@ -60,8 +60,8 @@ function Dashboard() {
     <Layout>
       <div className="row justify-content-md-center">
         <div className="col-12">
-          <Navbar /> {/* Render the Navbar component */}
-          <h2 className="text-center mt-5">Welcome, {user.name || 'Guest'}!</h2>
+          <Navbar />
+          <h2 className="text-center mt-5">Selamat Datang, {user.name || 'Guest'}!</h2>
           <div className="text-center mt-3">
             <button onClick={handleAddDiagnosis} className="btn btn-primary">
               Tambah Diagnosis
@@ -69,7 +69,7 @@ function Dashboard() {
           </div>
           {/* Render Diagnosis Data */}
           <div className="mt-5">
-            <h3 className="text-center">Diagnosis History</h3>
+            <h3 className="text-center">Riwayat Diagnosis</h3>
             <ListGroup as="ol" numbered>
             {diagnoses.map((diagnosis) => (
             <ListGroup.Item key={diagnosis.id} action onClick={() => navigate(`/diagnosis/${diagnosis.id}`)} as="li" className="d-flex justify-content-between align-items-start">

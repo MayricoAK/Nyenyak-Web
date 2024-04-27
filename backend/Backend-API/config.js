@@ -44,6 +44,8 @@ const firebaseConfig = {
   };
 
 const firebaseApp = initializeApp(firebaseConfig);
-const auth = getAuth(firebaseApp)
+const auth = getAuth(firebaseApp);
 
-module.exports = { db, auth, verifyFirebaseToken, authorization};
+const timestamp = admin.database.ServerValue.TIMESTAMP;
+
+module.exports = { db, auth, verifyFirebaseToken, authorization, timestamp };

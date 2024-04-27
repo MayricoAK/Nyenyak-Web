@@ -1,7 +1,7 @@
 const express = require('express');
 // const crypto = require('crypto');
 const axios = require('axios');
-const { db, verifyFirebaseToken } = require('../config');
+const { db, verifyFirebaseToken, timestamp } = require('../config');
 const { generateUniqueId, getCurrentTimestamp, calculateBMI, convertBMI, 
         calculateSleepQuality,calculateStressLevel,calculateBpCategory, isValidDiagnosisId 
       } = require('../utils');
@@ -15,26 +15,34 @@ router.use(verifyFirebaseToken);
 router.get('/', async (req, res) => {
   try {
     const uid = req.user.uid;
+    const ref = db.ref(`diagnosis/${uid}`);
 
     // Mengambil data diagnosis dari database
-    const snapshot = await db.ref(`diagnosis/${uid}`).once('value');
-    const data = snapshot.val();
+    // const snapshot = await db.ref(`diagnosis/${uid}`).once('value');
+    // const data = snapshot.val();
 
     // Memasukkan data dari database ke array map
-    let diagnoses = Object.keys(data).map(key => ({
-      id: key,
-      ...data[key]
-    }));
+    // let diagnoses = Object.keys(data).map(key => ({
+    //   id: key,
+    //   ...data[key]
+    // }));
 
     // Sorting diagnosis by date in Descending order
-    diagnoses.sort((a, b) => {
-      const dateA = new Date(a.date.split('-').reverse().join('-'));
-      const dateB = new Date(b.date.split('-').reverse().join('-'));
-      return dateB - dateA;
-    });
+    // diagnoses.sort((a, b) => {
+    //   const dateA = new Date(a.date.split('-').reverse().join('-'));
+    //   const dateB = new Date(b.date.split('-').reverse().join('-'));
+    //   return dateB - dateA;
+    // });
 
     // Mengubah diagnosis yang sudah sorting menjadi respon JSON
-    res.json(diagnoses);
+    // res.json(diagnoses);
+    ref.orderByChild('timestamp').once('value', (snapshot) => {
+      const data = snapshot.val();
+      const diagnoses = data ? Object.values(data) : [];
+      res.json(diagnoses);
+      // Lakukan sesuatu dengan data yang telah diurutkan
+      console.log(diagnoses);
+    });
   } catch (error) {
     res.status(500).json({ status: 'failed', message: 'Terjadi kesalahan ketika mengambil data diagnosis' });
   }
@@ -154,7 +162,8 @@ router.post('/', async (req, res) => {
       heartRate,
       dailySteps,
       sleepDisorder: sleepDisorderPrediction,
-      solution: solution
+      solution: solution,
+      timestamp: timestamp
     };
 
     // Menyimpan data diagnosis ke Firebase Realtime Database
@@ -164,6 +173,7 @@ router.post('/', async (req, res) => {
     res.status(201).json({ status: "success", message: "Data diagnosis berhasil ditambahkan", newDiagnosis });
   } catch (error) {
     // Menangani kesalahan yang mungkin terjadi saat membuat diagnosis
+    console.log(error.message)
     res.status(500).json({ status: "failed", message: 'Tidak dapat membuat data diagnosis' });
   }
 });

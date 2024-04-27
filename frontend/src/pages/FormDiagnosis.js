@@ -3,9 +3,41 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/Layout';
 import Navbar from '../components/Navbar';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { BiInfoCircle } from 'react-icons/bi';
+
+function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Modal heading
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Centered Modal</h4>
+        <p>
+          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+          consectetur ac, vestibulum at eros.
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
 
 function FormDiagnosis() {
   const navigate = useNavigate();
+  const [modalShow, setModalShow] = useState(false);
   const [formData, setFormData] = useState({
     weight: '',
     height: '',
@@ -108,13 +140,14 @@ function FormDiagnosis() {
         <Navbar />
         <h2 className="text-center mb-4">Tambah Diagnosis Baru</h2>
         <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label htmlFor="weight" className="form-label">
+          <div className="mb-3 d-flex align-items-center">
+            <label htmlFor="weight" className="form-label me-2">
               Berat Badan (kg)
             </label>
             <input
               type="number"
-              className="form-control"
+              placeholder="Masukkan berat badan Anda (kg)"
+              className="form-control me-2"
               id="weight"
               name="weight"
               value={formData.weight}
@@ -122,13 +155,13 @@ function FormDiagnosis() {
               required
             />
           </div>
-
-          <div className="mb-3">
-            <label htmlFor="height" className="form-label">
-              Tinggi Badan (cm)
+          <div className="mb-3 d-flex align-items-center">
+            <label htmlFor="height" className="form-label me-2">
+            Tinggi Badan (cm)
             </label>
             <input
               type="number"
+              placeholder="Masukkan tinggi badan Anda (cm)"
               className="form-control"
               id="height"
               name="height"
@@ -137,13 +170,13 @@ function FormDiagnosis() {
               required
             />
           </div>
-
-          <div className="mb-3">
-            <label htmlFor="sleepDuration" className="form-label">
+          <div className="mb-3 d-flex align-items-center">
+            <label htmlFor="sleepDuration" className="form-label me-2">
               Durasi Tidur (jam)
             </label>
             <input
               type="number"
+              placeholder="Masukkan durasi tidur Anda"
               step="0.1"
               className="form-control"
               id="sleepDuration"
@@ -153,30 +186,13 @@ function FormDiagnosis() {
               required
             />
           </div>
-
-          <div className="mb-3">
-            <label htmlFor="qualityOfSleep" className="form-label">
-              Kualitas Tidur
-            </label>
-            <input
-              type="number"
-              min="1"
-              max="24"
-              className="form-control"
-              id="qualityOfSleep"
-              name="qualityOfSleep"
-              value={formData.qualityOfSleep}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          <div className="mb-3">
-            <label htmlFor="physicalActivityLevel" className="form-label">
+          <div className="mb-3 d-flex align-items-center">
+            <label htmlFor="physicalActivityLevel" className="form-label me-2">
               Durasi Aktivitas Fisik dalam sehari (jam)
             </label>
             <input
               type="number"
+              placeholder="Masukkan durasi kegiatan fisik Anda dalam sehari (jam)"
               step="0.1"
               className="form-control"
               id="physicalActivityLevel"
@@ -186,39 +202,30 @@ function FormDiagnosis() {
               required
             />
           </div>
-
-          <div className="mb-3">
-          <label htmlFor="bloodPressure" className="form-label">
-            Tekanan Darah
-          </label>
-          <select
-            ref={selectRef}
-            className="form-control"
-            id="bloodPressure"
-            name="bloodPressure"
-            value={formData.bloodPressure}
-            onChange={handleInputChange}
-            onClick={handleSelectClick}
-            required
-          >
-            {bloodPressureOptions.map((option) => (
-              <option
-                key={option.value}
-                value={option.value}
-                hidden={option.hidden}
-              >
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
-
-          <div className="mb-3">
-            <label htmlFor="stressLevel" className="form-label">
+          <div className="mb-3 d-flex align-items-center">
+            <label htmlFor="qualityOfSleep" className="form-label me-2">
+              Kualitas Tidur
+            </label>
+            <input
+              type="number"
+              placeholder="Masukkan penilaian subyektif terhadap kualitas tidur Anda (1-10)"
+              min="1"
+              max="10"
+              className="form-control"
+              id="qualityOfSleep"
+              name="qualityOfSleep"
+              value={formData.qualityOfSleep}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="mb-3 d-flex align-items-center">
+            <label htmlFor="stressLevel" className="form-label me-2">
               Tingkat Stress
             </label>
             <input
               type="number"
+              placeholder="Masukkan penilaian subyektif terhadap tingkat stress Anda (1-10)"
               min="1"
               max="10"
               className="form-control"
@@ -229,13 +236,42 @@ function FormDiagnosis() {
               required
             />
           </div>
-
-          <div className="mb-3">
-            <label htmlFor="heartRate" className="form-label">
-              Detak jantung normal
+          <div className="mb-3 d-flex align-items-center">
+            <label htmlFor="bloodPressure" className="form-label me-2">
+              Tekanan Darah
+            </label>
+            <Button variant="link" onClick={() => setModalShow(true)}>
+              <BiInfoCircle />
+            </Button>
+            <select
+              ref={selectRef}
+              className="form-control"
+              placeholder="Masukkan jenis tekanan darah yang Anda miliki"
+              id="bloodPressure"
+              name="bloodPressure"
+              value={formData.bloodPressure}
+              onChange={handleInputChange}
+              onClick={handleSelectClick}
+              required
+            >
+              {bloodPressureOptions.map((option) => (
+                <option
+                  key={option.value}
+                  value={option.value}
+                  hidden={option.hidden}
+                >
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="mb-3 d-flex align-items-center">
+            <label htmlFor="heartRate" className="form-label me-2">
+              Detak Jantung (bpm)
             </label>
             <input
               type="number"
+              placeholder="Masukkan detak jantung Anda dalam satu menit (bpm)"
               className="form-control"
               id="heartRate"
               name="heartRate"
@@ -244,13 +280,13 @@ function FormDiagnosis() {
               required
             />
           </div>
-
-          <div className="mb-3">
-            <label htmlFor="dailySteps" className="form-label">
+          <div className="mb-3 d-flex align-items-center">
+            <label htmlFor="dailySteps" className="form-label me-2">
               Langkah yang ditempuh dalam sehari
             </label>
             <input
               type="number"
+              placeholder="Masukkan jumlah langkah harian Anda"
               className="form-control"
               id="dailySteps"
               name="dailySteps"
@@ -259,7 +295,13 @@ function FormDiagnosis() {
               required
             />
           </div>
-          <button onClick={() => navigate('/dashboard')} className="btn btn-secondary" >Back to Dashboard</button>
+
+          <button onClick={() => navigate('/dashboard')} className="btn btn-secondary" >Kembali</button>
+
+          <MyVerticallyCenteredModal
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+          />
           <button type="submit" className="btn btn-primary">
             Submit
           </button>

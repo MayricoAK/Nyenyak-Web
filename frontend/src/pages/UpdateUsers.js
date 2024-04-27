@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
 import Layout from '../components/Layout';
 import Navbar from '../components/Navbar';
 
@@ -113,16 +114,25 @@ function UpdateUsers() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="gender" className="form-label">Gender</label>
-            <input
-              type="text"
-              className="form-control"
-              id="gender"
+            <label htmlFor="gender" className="form-label">Gender</label><br></br>
+            <Form.Check
+              inline
+              label="Laki-laki"
               name="gender"
-              value={formData.gender}
+              value="Male"
+              checked={formData.gender === "Male"}
               onChange={handleInputChange}
+              type="radio"
             />
-            
+            <Form.Check
+              inline
+              label="Perempuan"
+              name="gender"
+              value="Female"
+              checked={formData.gender === "Female"}
+              onChange={handleInputChange}
+              type="radio"
+            />  
           </div>
           <div className="mb-3">
             <label htmlFor="birthDate" className="form-label">Birth Date</label>
@@ -141,8 +151,6 @@ function UpdateUsers() {
     </div>
       </div>
     </Layout>
-    
-
   );
 }
 

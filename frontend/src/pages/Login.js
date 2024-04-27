@@ -65,7 +65,7 @@ function Login() {
 
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
-                    Email address
+                    Email
                   </label>
                   <input
                     type="email"
@@ -98,7 +98,7 @@ function Login() {
                     {isSubmitting ? 'Logging in...' : 'Login'}
                   </button>
                   <p className="text-center">
-                    Don't have an account? <Link to="/register">Register here</Link>
+                    Belum memiliki akun? <Link to="/register">Daftar disini</Link>
                   </p>
                 </div>
               </form>
