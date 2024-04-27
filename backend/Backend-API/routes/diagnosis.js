@@ -2,7 +2,7 @@ const express = require('express');
 // const crypto = require('crypto');
 const axios = require('axios');
 const { db, verifyFirebaseToken, timestamp } = require('../config');
-const { generateUniqueId, getCurrentTimestamp, calculateBMI, convertBMI, 
+const { createTimestamp, generateUniqueId, getCurrentTimestamp, calculateBMI, convertBMI, 
         calculateSleepQuality,calculateStressLevel,calculateBpCategory, isValidDiagnosisId 
       } = require('../utils');
 
@@ -17,29 +17,12 @@ router.get('/', async (req, res) => {
     const uid = req.user.uid;
     const ref = db.ref(`diagnosis/${uid}`);
 
-    // Mengambil data diagnosis dari database
-    // const snapshot = await db.ref(`diagnosis/${uid}`).once('value');
-    // const data = snapshot.val();
-
-    // Memasukkan data dari database ke array map
-    // let diagnoses = Object.keys(data).map(key => ({
-    //   id: key,
-    //   ...data[key]
-    // }));
-
-    // Sorting diagnosis by date in Descending order
-    // diagnoses.sort((a, b) => {
-    //   const dateA = new Date(a.date.split('-').reverse().join('-'));
-    //   const dateB = new Date(b.date.split('-').reverse().join('-'));
-    //   return dateB - dateA;
-    // });
-
-    // Mengubah diagnosis yang sudah sorting menjadi respon JSON
-    // res.json(diagnoses);
+    // Mengambil data dengan urutan berdasarkan timestamp terbaru
     ref.orderByChild('timestamp').once('value', (snapshot) => {
       const data = snapshot.val();
       const diagnoses = data ? Object.values(data) : [];
       res.json(diagnoses);
+      console.log(diagnoses)
     });
   } catch (error) {
     res.status(500).json({ status: 'failed', message: 'Terjadi kesalahan ketika mengambil data diagnosis' });
@@ -62,6 +45,7 @@ router.get('/:id', async (req, res) => {
     }
 
     // Respons
+    console.log(diagnosis)
     res.json(diagnosis);
   } catch (error) {
     res.status(500).json({ status: "failed", message: 'Terjadi kesalahan ketika mengambil data diagnosis' });
@@ -114,7 +98,8 @@ router.post('/', async (req, res) => {
 
     // Membuat ID dan timestamp baru untuk diagnosis
     const newId = generateUniqueId();
-    const createdAt = await getCurrentTimestamp();
+    const createdAt = getCurrentTimestamp();
+    const timeStamp = createTimestamp();
 
     // Mengonversi level aktivitas fisik dari jam menjadi menit
     const toMinute = physicalActivityLevel * 60;
@@ -161,13 +146,14 @@ router.post('/', async (req, res) => {
       dailySteps,
       sleepDisorder: sleepDisorderPrediction,
       solution: solution,
-      timestamp: timestamp
+      timestamp: timeStamp
     };
 
     // Menyimpan data diagnosis ke Firebase Realtime Database
     await db.ref(`diagnosis/${uid}/${newId}`).set(newDiagnosis);
 
     // Memberikan respons sukses jika diagnosis berhasil dibuat
+    console.log(newDiagnosis)
     res.status(201).json({ status: "success", message: "Data diagnosis berhasil ditambahkan", newDiagnosis });
   } catch (error) {
     // Menangani kesalahan yang mungkin terjadi saat membuat diagnosis

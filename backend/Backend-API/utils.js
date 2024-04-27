@@ -1,6 +1,7 @@
 const { differenceInYears, parse, isValid } = require('date-fns');
 const crypto = require('crypto');
 const { DateTime } = require('luxon');
+const moment = require('moment-timezone');
 
 function calculateAge(dateOfBirth) {
   const dob = parse(dateOfBirth, 'dd-MM-yyyy', new Date());
@@ -26,6 +27,11 @@ function getCurrentTimestamp() {
   
   const formattedDate = `${day}-${month}-${year}`;
   return formattedDate;
+}
+
+function createTimestamp() {
+  
+  return moment().tz('Asia/Bangkok').valueOf();
 }
 
 function calculateBMI(height, weight){
@@ -97,4 +103,5 @@ function isValidGender(gender) {
   return ['male', 'female'].includes(gender.toLowerCase());
 }
 
-module.exports = { isValidGender, isValidDiagnosisId, calculateAge, isValidDateFormat, generateUniqueId, getCurrentTimestamp, calculateBMI, convertBMI, calculateSleepQuality,calculateStressLevel,calculateBpCategory };
+module.exports = { 
+  createTimestamp, isValidGender, isValidDiagnosisId, calculateAge, isValidDateFormat, generateUniqueId, getCurrentTimestamp, calculateBMI, convertBMI, calculateSleepQuality,calculateStressLevel,calculateBpCategory };
