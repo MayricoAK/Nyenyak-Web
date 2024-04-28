@@ -8,7 +8,8 @@
     "firebase-admin": "^12.0.0",
     "luxon": "^3.4.4",
     "moment": "^2.30.1",
-    "moment-timezone": "^0.5.45"
+    "moment-timezone": "^0.5.45",
+    "time-stamp": "^2.2.0"
   },
   "name": "backend-api",
   "version": "1.0.0",

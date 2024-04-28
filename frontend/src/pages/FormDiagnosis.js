@@ -146,6 +146,7 @@ function FormDiagnosis() {
         <Form onSubmit={handleSubmit}>
         <div className="mb-3">
           <Table borderless responsive>
+          <thead></thead>
             <tbody>
               <tr>
                 <td>Berat Badan</td>

@@ -28,7 +28,7 @@ function Dashboard() {
     };
 
     fetchData();
-  }, []);
+  }, [navigate]);
 
   const getUser = async () => {
     try {
@@ -56,9 +56,18 @@ function Dashboard() {
     }
   };
 
-  const handleAddDiagnosis = () => {
-    navigate('/form-diagnosis');
+  const sleepDisorderCounts = {
+    'None' : 0,
+    'Insomnia': 0,
+    'Sleep Apnea': 0
   };
+
+  diagnoses.forEach(diagnosis => {
+    const disorder = diagnosis.sleepDisorder;
+    if (disorder in sleepDisorderCounts) {
+      sleepDisorderCounts[disorder]++;
+    }
+  });
 
   return (
     <Layout>
@@ -67,13 +76,18 @@ function Dashboard() {
           <Navbar />
           <h2 className="text-center mt-5">Selamat Datang, {user.name || 'Guest'}!</h2>
           <div className="text-center mt-3">
-            <button onClick={handleAddDiagnosis} className="btn btn-primary">
+            <button onClick={() => navigate('/form-diagnosis')} className="btn btn-primary">
               Tambah Diagnosis
             </button>
           </div>
           {/* Render Diagnosis Data */}
           <div className="mt-5">
             <h3 className="text-center">Riwayat Diagnosis</h3><br></br>
+            <div className="text-center">
+              <p>Total Insomnia: {sleepDisorderCounts["Insomnia"]}</p>
+              <p>Total Sleep Apnea: {sleepDisorderCounts["Sleep Apnea"]}</p>
+              <p>Total tidak memiliki gangguan tidur: {sleepDisorderCounts["None"]}</p>
+            </div>
             <ListGroup as="ol" numbered>
             {diagnoses.slice(0, 3).map((diagnosis) => (
             <ListGroup.Item key={diagnosis.id} action onClick={() => navigate(`/diagnosis/${diagnosis.id}`)} as="li" className="d-flex justify-content-between align-items-start">

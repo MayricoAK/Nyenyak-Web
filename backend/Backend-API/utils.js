@@ -1,7 +1,7 @@
 const { differenceInYears, parse, isValid } = require('date-fns');
 const crypto = require('crypto');
 const { DateTime } = require('luxon');
-const moment = require('moment-timezone');
+const timestamp = require('time-stamp');
 
 function calculateAge(dateOfBirth) {
   const dob = parse(dateOfBirth, 'dd-MM-yyyy', new Date());
@@ -30,8 +30,7 @@ function getCurrentTimestamp() {
 }
 
 function createTimestamp() {
-  
-  return moment().tz('Asia/Bangkok').valueOf();
+  return timestamp.utc('YYYYMMDDHHmmss');
 }
 
 function calculateBMI(height, weight){

@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
-import Navbar from '../components/Navbar'; // Import Navbar component
+import Navbar from '../components/Navbar';
+import ListDiagnosis from './ListDiagnosis';
+import FilteredDiagnosis from './FilteredDiagnosis';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-import Badge from 'react-bootstrap/Badge';
-import ListGroup from 'react-bootstrap/ListGroup';
-
-function Dashboard() {
-  const navigate = useNavigate();
+const Diagnosis = () => {
+  const [showFilteredDiagnosis, setShowFilteredDiagnosis] = useState(false);
   const [diagnoses, setDiagnoses] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,7 +26,7 @@ function Dashboard() {
     };
 
     fetchData();
-  }, []);
+  }, [navigate]);
 
   const getDiagnoses = async () => {
     try {
@@ -39,45 +39,33 @@ function Dashboard() {
     }
   };
 
-  const handleAddDiagnosis = () => {
-    navigate('/form-diagnosis');
+  const handleFilterDiagnosis = () => {
+    setShowFilteredDiagnosis(!showFilteredDiagnosis);
   };
 
   return (
     <Layout>
       <div className="row justify-content-md-center">
         <div className="col-12">
-          <Navbar /> {/* Render the Navbar component */}
+          <Navbar />
           <h2 className="text-center mt-5">Riwayat Diagnosis</h2>
           <div className="text-center mt-3">
-            <button onClick={handleAddDiagnosis} className="btn btn-primary">
+            <button onClick={() => navigate('/form-diagnosis')} className="btn btn-primary ml-3">
               Tambah Diagnosis
             </button>
+            <button onClick={handleFilterDiagnosis} className="btn btn-secondary ml-3">
+              {showFilteredDiagnosis ? 'Semua Riwayat' : 'Riwayat Bulan Ini'}
+            </button>
           </div>
-          {/* Render Diagnosis Data */}
-          <div className="mt-5">
-            <ListGroup as="ol" numbered>
-            {diagnoses.map((diagnosis) => (
-            <ListGroup.Item key={diagnosis.id} action onClick={() => navigate(`/diagnosis/${diagnosis.id}`)} as="li" className="d-flex justify-content-between align-items-start">
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">{diagnosis.sleepDisorder}</div>
-                  {diagnosis.solution} <br></br>
-                </div>
-                <Badge bg="primary" pill>
-                  {diagnosis.date}
-                </Badge>
-              
-              </ListGroup.Item>
-            ))}
-            </ListGroup>
-          </div>
+
+          {showFilteredDiagnosis ? <FilteredDiagnosis diagnoses={diagnoses} /> : <ListDiagnosis diagnoses={diagnoses} />}
+        </div>
           <p className="text-left">
             <button onClick={() => navigate('/dashboard')} className="btn btn-secondary mt-3">Dashboard</button>
           </p>
-        </div>
       </div>
     </Layout>
   );
-}
+};
 
-export default Dashboard;
+export default Diagnosis;

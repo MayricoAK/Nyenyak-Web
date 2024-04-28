@@ -20,9 +20,13 @@ router.get('/', async (req, res) => {
     // Mengambil data dengan urutan berdasarkan timestamp terbaru
     ref.orderByChild('timestamp').once('value', (snapshot) => {
       const data = snapshot.val();
-      const diagnoses = data ? Object.values(data) : [];
+      let diagnoses = data ? Object.values(data) : [];
+
+      // Urutkan data berdasarkan timestamp terbaru
+      diagnoses.sort((a, b) => b.timestamp - a.timestamp);
+
       res.json(diagnoses);
-      console.log(diagnoses)
+      console.log(diagnoses);
     });
   } catch (error) {
     res.status(500).json({ status: 'failed', message: 'Terjadi kesalahan ketika mengambil data diagnosis' });
