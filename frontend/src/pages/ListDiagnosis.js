@@ -17,11 +17,13 @@ const ListDiagnosis = ({diagnoses}) => {
         {diagnoses.map((diagnosis) => (
           <ListGroup.Item key={diagnosis.id} action onClick={() => navigate(`/diagnosis/${diagnosis.id}`)} as="li" className="d-flex justify-content-between align-items-start">
             <div className="ms-2 me-auto">
-              <div className="fw-bold">{diagnosis.sleepDisorder}</div>
+              <div className="fw-bold">
+                {diagnosis.sleepDisorder}
+              </div>
               {diagnosis.solution} <br />
             </div>
             <Badge bg="primary" pill>
-              {diagnosis.date} <br></br>{diagnosis.timestamp}
+              {diagnosis.date}
             </Badge>
           </ListGroup.Item>
         ))}
