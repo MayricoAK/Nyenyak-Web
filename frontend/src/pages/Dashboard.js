@@ -80,7 +80,7 @@ function Dashboard() {
               Tambah Diagnosis
             </button>
           </div>
-          {/* Render Diagnosis Data */}
+          {/* Diagnosis Data */}
           <div className="mt-5">
             <h3 className="text-center">Riwayat Diagnosis</h3><br></br>
             <div className="text-center">
@@ -89,16 +89,15 @@ function Dashboard() {
               <p>Tidak memiliki gangguan tidur: {sleepDisorderCounts["None"]}</p>
             </div>
             <ListGroup as="ol" numbered>
+            {/* Tampil 3 Diagnosis Terbaru */}
             {diagnoses.slice(0, 3).map((diagnosis) => (
-            <ListGroup.Item key={diagnosis.id} action onClick={() => navigate(`/diagnosis/${diagnosis.id}`)} as="li" className="d-flex justify-content-between align-items-start">
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">{diagnosis.sleepDisorder}</div>
+              <ListGroup.Item key={diagnosis.id} action onClick={() => navigate(`/diagnosis/${diagnosis.id}`)} as="li" 
+                className="d-flex justify-content-between align-items-start">
+                <div className="ms-2 me-auto">
+                  <div className="fw-bold">{diagnosis.sleepDisorder}</div>
                   {diagnosis.solution} <br></br>
                 </div>
-                <Badge bg="primary" pill>
-                  {diagnosis.date}
-                </Badge>
-              
+                <Badge bg="primary" pill>{diagnosis.date}</Badge>
               </ListGroup.Item>
             ))}
             </ListGroup>

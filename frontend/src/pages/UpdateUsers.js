@@ -106,47 +106,24 @@ function UpdateUsers() {
                 <h5 className="card-title mb-4">Ubah Detail </h5>
                 <form onSubmit={handleSubmit}>
                   <div className="mb-3">
-                      <label htmlFor="name" className="form-label">Nama Lengkap</label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                      />
-                    </div>
+                    <label htmlFor="name" className="form-label">Nama Lengkap</label>
+                    <input type="text" className="form-control" id="name"
+                      name="name" value={formData.name} onChange={handleInputChange}
+                    />
+                  </div>
                     <div className="mb-3">
                       <label htmlFor="gender" className="form-label">Jenis Kelamin</label><br></br>
-                      <Form.Check
-                        inline
-                        label="Laki-laki"
-                        name="gender"
-                        value="Male"
-                        checked={formData.gender === "Male"}
-                        onChange={handleInputChange}
-                        type="radio"
+                      <Form.Check inline label="Laki-laki" name="gender" value="Male" checked={formData.gender === "Male"}
+                        onChange={handleInputChange} type="radio"
                       />
-                      <Form.Check
-                        inline
-                        label="Perempuan"
-                        name="gender"
-                        value="Female"
-                        checked={formData.gender === "Female"}
-                        onChange={handleInputChange}
-                        type="radio"
+                      <Form.Check inline label="Perempuan" name="gender" value="Female" checked={formData.gender === "Female"}
+                        onChange={handleInputChange} type="radio"
                       />  
                     </div>
                     <div className="mb-3">
                       <label htmlFor="birthDate" className="form-label">Tanggal Lahir</label>
-                      <input
-                        type="date"
-                        className="form-control"
-                        id="birthDate"
-                        name="birthDate"
-                        value={formData.birthDate}
-                        onChange={handleInputChange}
-                      />
+                      <input type="date" className="form-control" id="birthDate" name="birthDate" value={formData.birthDate}
+                        onChange={handleInputChange}/>
                     </div>
                     <button onClick={() => navigate('/profile')} className="btn btn-secondary mt-3">Back</button>
                     <button type="submit" className="btn btn-primary mt-3">Update</button>

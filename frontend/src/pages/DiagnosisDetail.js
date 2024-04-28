@@ -64,55 +64,53 @@ function DiagnosisDetail() {
   }
 
   return (
-    
     <Layout>
       <div className="row justify-content-md-center">
         <div className="col-12">
-        <Navbar />
-        <h2>Detail Diagnosis ({diagnosis.date})</h2>
-        <Table responsive="sm" striped>
-        <tbody>
-          <tr>
-            <td>Hasil Diagnosis</td>
-            <td><b>{diagnosis.sleepDisorder}</b></td>
-          </tr>
-          <tr>
-            <td>Durasi Tidur</td>
-            <td>{diagnosis.sleepDuration} jam</td>
-          </tr>
-          <tr>
-            <td>Durasi Aktivitas</td>
-            <td>{diagnosis.physicalActivityLevel} menit</td>
-          </tr>
-          <tr>
-            <td>Kategori BMI</td>
-            <td>{diagnosis.BMIcategory}</td>
-          </tr>
-          <tr>
-            <td>Tekanan Darah</td>
-            <td>{diagnosis.bloodPressure}</td>
-          </tr>
-          <tr>
-            <td>Detak Jantung</td>
-            <td>{diagnosis.heartRate} bpm</td>
-          </tr>
-          <tr>
-            <td>Tingkat Kualitas Tidur</td>
-            <td>{diagnosis.qualityOfSleep}0 %</td>
-          </tr>
-          <tr>
-            <td>Tingkat Stress</td>
-            <td>{diagnosis.stressLevel}0 %</td>
-          </tr>
-          <tr>
-            <td>Solusi</td>
-            <td>{diagnosis.solution}</td>
-          </tr>
-        </tbody>
-        </Table>
-        <button onClick={() => navigate('/dashboard')} className="btn btn-secondary mt-3">Kembali</button>
-        <button onClick={handleDelete} className="btn btn-danger mt-3">Hapus Diagnosis</button>
-        
+          <Navbar />
+          <h2>Detail Diagnosis ({diagnosis.date})</h2>
+          <Table responsive="sm" striped>
+          <tbody>
+            <tr>
+              <td>Hasil Diagnosis</td>
+              <td><b>{diagnosis.sleepDisorder}</b></td>
+            </tr>
+            <tr>
+              <td>Durasi Tidur</td>
+              <td>{diagnosis.sleepDuration} jam</td>
+            </tr>
+            <tr>
+              <td>Durasi Aktivitas</td>
+              <td>{diagnosis.physicalActivityLevel} menit</td>
+            </tr>
+            <tr>
+              <td>Kategori BMI</td>
+              <td>{diagnosis.BMIcategory}</td>
+            </tr>
+            <tr>
+              <td>Tekanan Darah</td>
+              <td>{diagnosis.bloodPressure}</td>
+            </tr>
+            <tr>
+              <td>Detak Jantung</td>
+              <td>{diagnosis.heartRate} bpm</td>
+            </tr>
+            <tr>
+              <td>Tingkat Kualitas Tidur</td>
+              <td>{diagnosis.qualityOfSleep}0 %</td>
+            </tr>
+            <tr>
+              <td>Tingkat Stress</td>
+              <td>{diagnosis.stressLevel}0 %</td>
+            </tr>
+            <tr>
+              <td>Solusi</td>
+              <td>{diagnosis.solution}</td>
+            </tr>
+          </tbody>
+          </Table>
+          <button onClick={() => navigate('/dashboard')} className="btn btn-secondary mt-3">Kembali</button>
+          <button onClick={handleDelete} className="btn btn-danger mt-3">Hapus Diagnosis</button>
         </div>
       </div>
     </Layout>

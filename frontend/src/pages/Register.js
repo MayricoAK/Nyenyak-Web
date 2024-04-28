@@ -52,16 +52,9 @@ function Register() {
               <Form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">
-                    Nama
+                    Nama Lengkap
                   </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                  />
+                  <input type="text" className="form-control" id="name" name="name" value={formData.name} onChange={handleChange}/>
                   {validationErrors.name && (
                     <div className="flex flex-col">
                       <small className="text-danger">
@@ -70,18 +63,13 @@ function Register() {
                     </div>
                   )}
                 </div>
+                {/* Input lainnya... */}
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
                     Email
                   </label>
                   <input
-                    type="email"
-                    className="form-control"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                  />
+                    type="email" className="form-control" id="email" name="email" value={formData.email} onChange={handleChange}/>
                   {validationErrors.name && (
                     <div className="flex flex-col">
                       <small className="text-danger">
@@ -95,13 +83,7 @@ function Register() {
                     Password
                   </label>
                   <input
-                    type="password"
-                    className="form-control"
-                    id="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                  />
+                    type="password" className="form-control" id="password" name="password" value={formData.password} onChange={handleChange} />
                   {validationErrors.name && (
                     <div className="flex flex-col">
                       <small className="text-danger">
@@ -115,11 +97,7 @@ function Register() {
                     Konfirmasi Password
                   </label>
                   <input
-                    type="password"
-                    className="form-control"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    value={formData.confirmPassword}
+                    type="password" className="form-control" id="confirmPassword" name="confirmPassword" value={formData.confirmPassword}
                     onChange={handleChange}
                   />
                   {validationErrors.name && (
@@ -131,47 +109,29 @@ function Register() {
                   )}
                 </div>
                 <div className="mb-3">
-                <label htmlFor="gender" className="form-label">
-                    Jenis Kelamin
-                </label>
-                <div key={`inline-radio`} className="mb-3">
-                    <Form.Check
-                        inline
-                        label="Laki-laki"
-                        name="gender"
-                        value="Male"
-                        checked={formData.gender === "Male"}
-                        onChange={handleChange}
-                        type="radio"
-                    />
-                    <Form.Check
-                        inline
-                        label="Perempuan"
-                        name="gender"
-                        value="Female"
-                        checked={formData.gender === "Female"}
-                        onChange={handleChange}
-                        type="radio"
-                    />
-                </div>
-                {validationErrors.gender && (
-                    <div className="flex flex-col">
-                    <small className="text-danger">
-                        {validationErrors.gender[0]}
-                    </small>
-                    </div>
-                )}
+                  <label htmlFor="gender" className="form-label">
+                      Jenis Kelamin
+                  </label>
+                  <div key={`inline-radio`} className="mb-3">
+                      <Form.Check inline label="Laki-laki" name="gender" value="Male" checked={formData.gender === "Male"} 
+                        onChange={handleChange} type="radio"/>
+                      <Form.Check inline label="Perempuan" name="gender" value="Female" checked={formData.gender === "Female"}
+                        onChange={handleChange} type="radio"/>
+                  </div>
+                  {validationErrors.gender && (
+                      <div className="flex flex-col">
+                        <small className="text-danger">
+                            {validationErrors.gender[0]}
+                        </small>
+                      </div>
+                  )}
                 </div>
                 <div className="mb-3">
                   <label htmlFor="birthDate" className="form-label">
                     Tanggal Lahir
                   </label>
                   <input
-                    type="date"
-                    className="form-control"
-                    id="birthDate"
-                    name="birthDate"
-                    value={formData.birthDate}
+                    type="date" className="form-control" id="birthDate" name="birthDate" value={formData.birthDate}
                     onChange={handleChange}
                   />
                   {validationErrors.birthDate && (
@@ -183,11 +143,7 @@ function Register() {
                   )}
                 </div>
                 <div className="d-grid gap-2">
-                  <button
-                    disabled={isSubmitting}
-                    type="submit"
-                    className="btn btn-primary btn-block"
-                  >
+                  <button disabled={isSubmitting} type="submit" className="btn btn-primary btn-block">
                     Daftar
                   </button>
                   <p className="text-center">

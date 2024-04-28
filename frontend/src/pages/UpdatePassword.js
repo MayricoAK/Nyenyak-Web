@@ -67,34 +67,33 @@ function UpdatePassword() {
               <div className="card-body">
                 <h5 className="card-title mb-4">Ubah Password </h5>
                 <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="newPassword">
-                  <Form.Label>Password Baru</Form.Label>
-                  <Form.Control
-                    type="password"
-                    placeholder="Enter new password"
-                    value={newPassword}
-                    onChange={handleNewPasswordChange}
-                    required
-                  />
-                </Form.Group>
-                <Form.Group controlId="confirmPassword">
-                  <Form.Label>Konfirmasi Password Baru</Form.Label>
-                  <Form.Control
-                    type="password"
-                    placeholder="Confirm new password"
-                    value={confirmPassword}
-                    onChange={handleConfirmPasswordChange}
-                    required
-                  />
-                </Form.Group>
-                {errorMessage && <p className="text-danger">{errorMessage}</p>}
-                {successMessage && <p className="text-success">{successMessage}</p>}
-                <br></br>
-                <Button onClick={() => navigate('/profile')} className="btn btn-secondary">Kembali</Button>
-                <Button variant="primary" type="submit">
-                  Update Password
-                </Button>
-              </Form>
+                  <Form.Group controlId="newPassword">
+                    <Form.Label>Password Baru</Form.Label>
+                    <Form.Control
+                      type="password"
+                      placeholder="Enter new password"
+                      value={newPassword}
+                      onChange={handleNewPasswordChange}
+                      required
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="confirmPassword">
+                    <Form.Label>Konfirmasi Password Baru</Form.Label>
+                    <Form.Control
+                      type="password"
+                      placeholder="Confirm new password"
+                      value={confirmPassword}
+                      onChange={handleConfirmPasswordChange}
+                      required
+                    />
+                  </Form.Group>
+                  {errorMessage && <p className="text-danger">{errorMessage}</p>}
+                  {successMessage && <p className="text-success">{successMessage}</p>}<br></br>
+                  <Button onClick={() => navigate('/profile')} className="btn btn-secondary">Kembali</Button>
+                  <Button variant="primary" type="submit">
+                    Update Password
+                  </Button>
+                </Form>
               </div>
             </div>
           </div>

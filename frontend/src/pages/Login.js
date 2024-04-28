@@ -62,17 +62,12 @@ function Login() {
                     <small className="text-danger">{validationErrors.message}</small>
                   </p>
                 )}
-
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
                     Email
                   </label>
                   <input
-                    type="email"
-                    className="form-control"
-                    id="email"
-                    name="email"
-                    value={email}
+                    type="email" className="form-control" id="email" name="email" value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
@@ -81,20 +76,12 @@ function Login() {
                     Password
                   </label>
                   <input
-                    type="password"
-                    className="form-control"
-                    id="password"
-                    name="password"
-                    value={password}
+                    type="password" className="form-control" id="password" name="password" value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
                 <div className="d-grid gap-2">
-                  <button
-                    disabled={isSubmitting}
-                    type="submit"
-                    className="btn btn-primary btn-block"
-                  >
+                  <button disabled={isSubmitting} type="submit" className="btn btn-primary btn-block">
                     {isSubmitting ? 'Logging in...' : 'Login'}
                   </button>
                   <p className="text-center">
