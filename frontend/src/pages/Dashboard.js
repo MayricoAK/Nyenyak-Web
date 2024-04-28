@@ -86,7 +86,7 @@ function Dashboard() {
             <div className="text-center">
               <p>Total Insomnia: {sleepDisorderCounts["Insomnia"]}</p>
               <p>Total Sleep Apnea: {sleepDisorderCounts["Sleep Apnea"]}</p>
-              <p>Total tidak memiliki gangguan tidur: {sleepDisorderCounts["None"]}</p>
+              <p>Tidak memiliki gangguan tidur: {sleepDisorderCounts["None"]}</p>
             </div>
             <ListGroup as="ol" numbered>
             {diagnoses.slice(0, 3).map((diagnosis) => (

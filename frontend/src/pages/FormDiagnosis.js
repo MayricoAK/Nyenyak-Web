@@ -19,15 +19,34 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Modal heading
+          Penjelasan Input
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Centered Modal</h4>
+        <h4>Tekanan Darah</h4>
         <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
+        Tingkat tekanan darah (blood pressure) dibagi ke dalam beberapa kategori berdasarkan ukuran tekanan sistolik dan diastolik. 
+        Berikut penjelasan pada pilihan input merujuk pada tingkat keparahan hipertensi (tekanan darah tinggi) yang dimiliki.
+        </p>
+        <p>
+        Stage 1 Hypertension (Hipertensi Tahap 1): <br></br>
+        Sistolik: 130-139 mmHg/ Diastolik: 80-89 mmHg
+        </p>
+        <p>
+        Stage 2 Hypertension (Hipertensi Tahap 2):<br></br>
+        Sistolik: 140 mmHg/ Diastolik: 90 mmHg
+        </p>
+        <p>
+        Advanced Hypertension (Hipertensi Lanjut):<br></br>
+        Sistolik: Di atas 180 mmHg/ Diastolik: Di atas 120 mmHg
+        </p>
+        <p>
+        Catatan:<br></br>
+        1. Tekanan sistolik adalah tekanan darah pada saat jantung berkontraksi atau memompa darah ke dalam arteri (tekanan maksimum dalam siklus detak jantung).<br></br>
+        2. Tekanan diastolik adalah tekanan darah pada saat jantung beristirahat di antara detak jantung (tekanan minimum dalam siklus detak jantung).<br></br>
+        3. Contoh pengukuran tekanan darah, seperti 120/80 mmHg, menggambarkan tekanan sistolik (120 mmHg) di atas tekanan diastolik (80 mmHg).<br></br>
+        4. Harap cari rujukan ke ahli medis terdekat untuk mendapatkan hasil pengukuran yang akurat
+        5. Untuk hasil pengukuran selain tiga di atas, harap memilih "Hipertensi Tahap 1"
         </p>
       </Modal.Body>
       <Modal.Footer>
@@ -53,9 +72,9 @@ function FormDiagnosis() {
   });
   const [bloodPressureOptions, setBloodPressureOptions] = useState([
     { value: '', label: 'Pilih Tekanan Darah', hidden: false }, // Default option
-    { value: 'stage 1', label: 'Stage 1', hidden: false },
-    { value: 'stage 2', label: 'Stage 2', hidden: false },
-    { value: 'advanced', label: 'Advanced', hidden: false }
+    { value: 'stage 1', label: 'Hipertensi Tahap 1', hidden: false },
+    { value: 'stage 2', label: 'Hipertensi Tahap 2', hidden: false },
+    { value: 'advanced', label: 'Hipertensi Lanjut', hidden: false }
   ]);
   const selectRef = useRef(null);
 
