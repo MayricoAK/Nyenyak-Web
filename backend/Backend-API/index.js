@@ -9,7 +9,6 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-  // origin: 'https://nyenyak-web.vercel.app',  // Allow requests from this origin
   origin: urlFrontend,
   methods: ['GET', 'POST', 'DELETE', 'PUT'],  // Allow specified HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization']  // Allow specified headers
