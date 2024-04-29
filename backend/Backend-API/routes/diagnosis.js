@@ -1,9 +1,9 @@
 const express = require('express');
 // const crypto = require('crypto');
 const axios = require('axios');
-const { db, verifyFirebaseToken, timestamp } = require('../config');
+const { db, verifyFirebaseToken, modelMachineLearning } = require('../config');
 const { createTimestamp, generateUniqueId, getCurrentTimestamp, calculateBMI, convertBMI, 
-        calculateSleepQuality,calculateStressLevel,calculateBpCategory, isValidDiagnosisId 
+        calculateSleepQuality,calculateStressLevel,calculateBpCategory, isValidDiagnosisId,
       } = require('../utils');
 
 const router = express.Router();
@@ -26,7 +26,6 @@ router.get('/', async (req, res) => {
       diagnoses.sort((a, b) => b.timestamp - a.timestamp);
 
       res.json(diagnoses);
-      console.log(diagnoses);
     });
   } catch (error) {
     res.status(500).json({ status: 'failed', message: 'Terjadi kesalahan ketika mengambil data diagnosis' });
@@ -49,7 +48,6 @@ router.get('/:id', async (req, res) => {
     }
 
     // Respons
-    console.log(diagnosis)
     res.json(diagnosis);
   } catch (error) {
     res.status(500).json({ status: "failed", message: 'Terjadi kesalahan ketika mengambil data diagnosis' });
@@ -123,7 +121,7 @@ router.post('/', async (req, res) => {
     };
 
     // Mengirim data ke Flask model API untuk prediksi
-    const modelApi = 'https://nyenyak-model-api-z2dhcxitca-et.a.run.app/prediction';
+    const modelApi = modelMachineLearning;
     const modelApiResponse = await axios.post(modelApi, modelApiInput);
 
     // Mendapatkan prediksi gangguan tidur dari respons model API

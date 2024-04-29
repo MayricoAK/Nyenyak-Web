@@ -97,10 +97,8 @@ function UpdateUsers() {
 
   return (
     <Layout>
-      <div className="col-12">
         <Navbar />
-        <div className="row justify-content-md-center mt-5">
-          <div className="col-8">
+        <div className="container mt-5">
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title mb-4">Ubah Detail </h5>
@@ -130,9 +128,7 @@ function UpdateUsers() {
                   </form>
               </div>
             </div>
-          </div>
         </div>
-    </div>
     </Layout>
   );
 }

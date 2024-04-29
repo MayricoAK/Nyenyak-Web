@@ -51,44 +51,58 @@ function Login() {
 
   return (
     <Layout>
-      <div className="row justify-content-md-center mt-5">
-        <div className="col-4">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title mb-4">Sign In</h5>
-              <form onSubmit={loginAction}>
-                {validationErrors.general && (
-                  <p className="text-center">
-                    <small className="text-danger">{validationErrors.message}</small>
-                  </p>
-                )}
-                <div className="mb-3">
-                  <label htmlFor="email" className="form-label">
-                    Email
-                  </label>
-                  <input
-                    type="email" className="form-control" id="email" name="email" value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="password" className="form-label">
-                    Password
-                  </label>
-                  <input
-                    type="password" className="form-control" id="password" name="password" value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
-                <div className="d-grid gap-2">
-                  <button disabled={isSubmitting} type="submit" className="btn btn-primary btn-block">
-                    {isSubmitting ? 'Logging in...' : 'Login'}
-                  </button>
-                  <p className="text-center">
-                    Belum memiliki akun? <Link to="/register">Daftar disini</Link>
-                  </p>
-                </div>
-              </form>
+      <div className="container">
+        <div className="row justify-content-center mt-5">
+          <div className="col-md-6 col-lg-4">
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title mb-4">Sign In</h5>
+                <form onSubmit={loginAction}>
+                  {validationErrors.general && (
+                    <p className="text-center">
+                      <small className="text-danger">{validationErrors.message}</small>
+                    </p>
+                  )}
+                  <div className="mb-3">
+                    <label htmlFor="email" className="form-label">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="email"
+                      name="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="password" className="form-label">
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="password"
+                      name="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                  <div className="d-grid gap-2">
+                    <button
+                      disabled={isSubmitting}
+                      type="submit"
+                      className="btn btn-primary btn-block"
+                    >
+                      {isSubmitting ? 'Logging in...' : 'Login'}
+                    </button>
+                    <p className="text-center">
+                      Belum memiliki akun? <Link to="/register">Daftar disini</Link>
+                    </p>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>

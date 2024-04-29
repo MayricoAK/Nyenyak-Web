@@ -157,11 +157,9 @@ function FormDiagnosis() {
 
   return (
     <Layout>
-      <div className="col-12">
-        <Navbar />
-        <div className="row justify-content-md-center mt-5">
+    <Navbar />
+      <div className="container mt-5">  
           <h2 className="text-center mb-4">Tambah Diagnosis Baru</h2>
-          <div className="col-10">
             <Form onSubmit={handleSubmit}>
             <div className="mb-3">
               <Table borderless responsive>
@@ -372,8 +370,6 @@ function FormDiagnosis() {
               </Table>
             </div>
             </Form>
-          </div>
-        </div>
       </div>
               <MyVerticallyCenteredModal
                 show={modalShow}

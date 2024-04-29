@@ -45,7 +45,9 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
+// model machine learning yang sudah dideploy
+const modelMachineLearning='https://nyenyak-model-api-z2dhcxitca-et.a.run.app/prediction'; 
+// frontend yang sudah dideploy
+const urlFrontend='https://nyenyak-web.vercel.app';
 
-const timestamp = admin.database.ServerValue.TIMESTAMP;
-
-module.exports = { db, auth, verifyFirebaseToken, authorization, timestamp };
+module.exports = { db, auth, verifyFirebaseToken, authorization, modelMachineLearning, urlFrontend };

@@ -3,13 +3,14 @@ const diagnosisRouter = require('./routes/diagnosis');
 const authRouter = require('./routes/auth');
 const articleRouter = require('./routes/articles');
 const usersRouter = require('./routes/users');
-const { verifyFirebaseToken } = require('./config');
+const { verifyFirebaseToken, urlFrontend } = require('./config');
 const cors = require('cors');
 
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',  // Allow requests from this origin
+  // origin: 'https://nyenyak-web.vercel.app',  // Allow requests from this origin
+  origin: urlFrontend,
   methods: ['GET', 'POST', 'DELETE', 'PUT'],  // Allow specified HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization']  // Allow specified headers
 }));

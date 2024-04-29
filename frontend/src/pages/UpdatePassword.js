@@ -61,8 +61,7 @@ function UpdatePassword() {
   return (
     <Layout>
       <Navbar />
-        <div className="row justify-content-md-center mt-5">
-          <div className="col-8">
+        <div className="container mt-5">
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title mb-4">Ubah Password </h5>
@@ -96,7 +95,6 @@ function UpdatePassword() {
                 </Form>
               </div>
             </div>
-          </div>
         </div>
     </Layout>
   );

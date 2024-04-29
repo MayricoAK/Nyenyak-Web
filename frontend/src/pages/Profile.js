@@ -34,15 +34,16 @@ function UserProfile() {
 
   return (
     <Layout>
-      <div className="col-12">
-        <Navbar />
-        <div className="row justify-content-md-center mt-5">
-          <div className="col-6">
-            <div className="container">
-              <h2 className="text-center">Detail Pengguna, {user.name}</h2>
-                <div className="card mt-3">
-                  <div className="card-body">
-                  <Table responsive>
+    
+    <div className="container mt-5">
+      <Navbar />
+        <h2 className="text-center mb-4">Detail Pengguna, {user.name}</h2>
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div className="card">
+              <div className="card-body">
+                <Table responsive>
+                  <tbody>
                     <tr>
                       <td>Nama Lengkap</td>
                       <td>{user.name}</td>
@@ -63,14 +64,19 @@ function UserProfile() {
                       <td>Tanggal Lahir</td>
                       <td>{user.birthDate}</td>
                     </tr>
-                  </Table>
-                  <p className="text-center">
-                    <button onClick={() => navigate('/dashboard')} className="btn btn-secondary mt-3">Dashboard</button>
-                    <button onClick={handlePutUser} className="btn btn-primary mt-3">Ubah Detail</button>
-                    <button onClick={handleUpdatePassword} className="btn btn-danger mt-3"> Ubah Kata Sandi </button>
-                  </p>
-                    
-                  </div>
+                  </tbody>
+                </Table>
+                <div className="text-center">
+                  <button onClick={() => navigate('/dashboard')} className="btn btn-secondary mt-3">
+                    Dashboard
+                  </button>
+                  <button onClick={handlePutUser} className="btn btn-primary mt-3">
+                    Ubah Detail
+                  </button>
+                  <button onClick={handleUpdatePassword} className="btn btn-danger mt-3">
+                    Ubah Kata Sandi
+                  </button>
+                </div>
               </div>
             </div>
           </div>
