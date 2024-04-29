@@ -45,7 +45,7 @@ function MyVerticallyCenteredModal(props) {
         1. Tekanan sistolik adalah tekanan darah pada saat jantung berkontraksi atau memompa darah ke dalam arteri (tekanan maksimum dalam siklus detak jantung).<br></br>
         2. Tekanan diastolik adalah tekanan darah pada saat jantung beristirahat di antara detak jantung (tekanan minimum dalam siklus detak jantung).<br></br>
         3. Contoh pengukuran tekanan darah, seperti 120/80 mmHg, menggambarkan tekanan sistolik (120 mmHg) di atas tekanan diastolik (80 mmHg).<br></br>
-        4. Harap cari rujukan ke ahli medis terdekat untuk mendapatkan hasil pengukuran yang akurat
+        4. Harap cari rujukan ke ahli medis terdekat untuk mendapatkan hasil pengukuran yang akurat<br></br>
         5. Untuk hasil pengukuran selain tiga di atas, harap memilih "Hipertensi Tahap 1"
         </p>
       </Modal.Body>
