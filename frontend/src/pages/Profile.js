@@ -34,9 +34,8 @@ function UserProfile() {
 
   return (
     <Layout>
-    
+    <Navbar />
     <div className="container mt-5">
-      <Navbar />
         <h2 className="text-center mb-4">Detail Pengguna, {user.name}</h2>
         <div className="row justify-content-center">
           <div className="col-md-6">

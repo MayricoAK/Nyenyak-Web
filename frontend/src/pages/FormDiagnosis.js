@@ -166,7 +166,7 @@ function FormDiagnosis() {
               <thead></thead>
                 <tbody>
                   <tr>
-                    <td>Berat Badan</td>
+                    <td>Berat Badan (kg)</td>
                     <td colSpan={2}>
                       <input
                         type="number"
@@ -183,7 +183,7 @@ function FormDiagnosis() {
                   </tr>
                   {/* Input lainnya... */}
                   <tr>
-                    <td>Tinggi Badan</td>
+                    <td>Tinggi Badan (cm)</td>
                     <td colSpan={2}>
                     <input
                       type="number"
@@ -198,7 +198,7 @@ function FormDiagnosis() {
                     </td>
                   </tr>
                   <tr>
-                    <td>Durasi Tidur</td>
+                    <td>Durasi Tidur (jam)</td>
                     <td colSpan={2}>
                     <input
                       type="number"
@@ -215,7 +215,7 @@ function FormDiagnosis() {
                     <td></td>
                   </tr>
                   <tr>
-                    <td>Durasi Aktivitas Fisik</td>
+                    <td>Durasi Aktivitas Fisik (jam)</td>
                     <td colSpan={2}>
                     <input
                       type="number"
@@ -325,7 +325,7 @@ function FormDiagnosis() {
                     <td></td>
                   </tr>
                   <tr>
-                    <td>Detak Jantung</td>
+                    <td>Detak Jantung (bpm)</td>
                     <td colSpan={2}>
                     <input
                       type="number"
