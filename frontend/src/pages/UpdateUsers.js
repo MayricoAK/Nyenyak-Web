@@ -99,6 +99,8 @@ function UpdateUsers() {
     <Layout>
         <Navbar />
         <div className="container mt-5">
+          <div className="row justify-content-center">
+            <div className="col-md-6">
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title mb-4">Ubah Detail </h5>
@@ -123,11 +125,13 @@ function UpdateUsers() {
                       <input type="date" className="form-control" id="birthDate" name="birthDate" value={formData.birthDate}
                         onChange={handleInputChange}/>
                     </div>
-                    <button onClick={() => navigate('/profile')} className="btn btn-secondary mt-3">Back</button>
+                    <button onClick={() => navigate('/profile')} className="btn btn-secondary mt-3">Kembali</button>
                     <button type="submit" className="btn btn-primary mt-3">Update</button>
                   </form>
               </div>
             </div>
+            </div>
+          </div>  
         </div>
     </Layout>
   );

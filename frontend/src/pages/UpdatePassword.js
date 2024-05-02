@@ -62,6 +62,8 @@ function UpdatePassword() {
     <Layout>
       <Navbar />
         <div className="container mt-5">
+          <div className="row justify-content-center">
+            <div className="col-md-6">
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title mb-4">Ubah Password </h5>
@@ -75,7 +77,7 @@ function UpdatePassword() {
                       onChange={handleNewPasswordChange}
                       required
                     />
-                  </Form.Group>
+                  </Form.Group><br />
                   <Form.Group controlId="confirmPassword">
                     <Form.Label>Konfirmasi Password Baru</Form.Label>
                     <Form.Control
@@ -95,6 +97,8 @@ function UpdatePassword() {
                 </Form>
               </div>
             </div>
+            </div>
+          </div>
         </div>
     </Layout>
   );
