@@ -19,7 +19,12 @@ function DiagnosisDetail() {
         });
         setDiagnosis(response.data);
       } catch (error) {
-        const { data } = error.response;
+        const { data, status } = error.response;
+        if (status === 401) {
+          alert('Sesi habis, login kembali')
+          localStorage.removeItem('token');
+          navigate('/')
+        }
         if (data.error === 'failed') {
           alert(data.message);
         }
@@ -37,12 +42,11 @@ function DiagnosisDetail() {
           headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
         });
         alert(response.data.message)
-        navigate('/dashboard');
+        navigate('/diagnosis');
       } catch (error) {
         if (error.response) {
           // Handle error responses from the server (e.g., validation errors)
           const { status, data } = error.response;
-    
           if (status === 400) {
             // Bad request (validation errors from backend)
             alert(data.message);
