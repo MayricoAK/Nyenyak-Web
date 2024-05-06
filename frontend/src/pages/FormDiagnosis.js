@@ -360,6 +360,7 @@ function FormDiagnosis() {
                     <td></td>
                     <td>
                     <button onClick={() => navigate('/dashboard')} className="btn btn-secondary" >Kembali</button>
+                    <span style={{ marginRight: '5px' }}></span>
                     <button type="submit" className="btn btn-primary">
                       Submit
                     </button>

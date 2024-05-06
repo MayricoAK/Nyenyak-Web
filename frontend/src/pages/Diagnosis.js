@@ -53,6 +53,7 @@ const Diagnosis = () => {
             <button onClick={() => navigate('/form-diagnosis')} className="btn btn-primary ml-3">
               Tambah Diagnosis
             </button>
+            <span style={{ marginRight: '5px' }}></span>
             <button onClick={handleFilterDiagnosis} className="btn btn-secondary ml-3">
               {showFilteredDiagnosis ? 'Semua Riwayat' : 'Riwayat Bulan Ini'}
             </button>

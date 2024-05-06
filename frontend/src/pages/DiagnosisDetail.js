@@ -5,7 +5,6 @@ import Navbar from '../components/Navbar';
 import Layout from '../components/Layout';
 import Table from 'react-bootstrap/Table';
 
-
 function DiagnosisDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -67,7 +66,7 @@ function DiagnosisDetail() {
     <Layout>
       <div className="row justify-content-md-center">
         <div className="col-12">
-          <Navbar />
+          <Navbar /><br />
           <h2>Detail Diagnosis ({diagnosis.date})</h2>
           <Table responsive="sm" striped>
           <tbody>
@@ -109,8 +108,12 @@ function DiagnosisDetail() {
             </tr>
           </tbody>
           </Table>
-          <button onClick={() => navigate('/dashboard')} className="btn btn-secondary mt-3">Kembali</button>
-          <button onClick={handleDelete} className="btn btn-danger mt-3">Hapus Diagnosis</button>
+          <div>
+            <button onClick={() => navigate('/dashboard')} className="btn btn-secondary ml-3">Kembali</button>
+            <span style={{ marginRight: '5px' }}></span>
+            <button onClick={handleDelete} className="btn btn-danger ml-3">Hapus Diagnosis</button>
+          </div>
+
         </div>
       </div>
     </Layout>

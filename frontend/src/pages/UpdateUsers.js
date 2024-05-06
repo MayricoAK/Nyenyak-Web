@@ -123,7 +123,8 @@ function UpdateUsers() {
                       <input type="date" className="form-control" id="birthDate" name="birthDate" value={formData.birthDate}
                         onChange={handleInputChange}/>
                     </div>
-                    <button onClick={() => navigate('/profile')} className="btn btn-secondary mt-3">Back</button>
+                    <button onClick={() => navigate('/profile')} className="btn btn-secondary mt-3">Kembali</button>
+                    <span style={{ marginRight: '5px' }}></span>
                     <button type="submit" className="btn btn-primary mt-3">Update</button>
                   </form>
               </div>

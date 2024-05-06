@@ -75,7 +75,7 @@ function UpdatePassword() {
                       onChange={handleNewPasswordChange}
                       required
                     />
-                  </Form.Group>
+                  </Form.Group><br />
                   <Form.Group controlId="confirmPassword">
                     <Form.Label>Konfirmasi Password Baru</Form.Label>
                     <Form.Control
@@ -89,6 +89,7 @@ function UpdatePassword() {
                   {errorMessage && <p className="text-danger">{errorMessage}</p>}
                   {successMessage && <p className="text-success">{successMessage}</p>}<br></br>
                   <Button onClick={() => navigate('/profile')} className="btn btn-secondary">Kembali</Button>
+                  <span style={{ marginRight: '5px' }}></span>
                   <Button variant="primary" type="submit">
                     Update Password
                   </Button>

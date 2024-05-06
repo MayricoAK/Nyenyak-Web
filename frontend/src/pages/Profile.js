@@ -69,9 +69,11 @@ function UserProfile() {
                   <button onClick={() => navigate('/dashboard')} className="btn btn-secondary mt-3">
                     Dashboard
                   </button>
+                  <span style={{ marginRight: '5px' }}></span>
                   <button onClick={handlePutUser} className="btn btn-primary mt-3">
                     Ubah Detail
                   </button>
+                  <span style={{ marginRight: '5px' }}></span>
                   <button onClick={handleUpdatePassword} className="btn btn-danger mt-3">
                     Ubah Kata Sandi
                   </button>
