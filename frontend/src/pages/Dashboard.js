@@ -28,7 +28,7 @@ function Dashboard() {
     };
 
     fetchData();
-  }, [navigate]);
+  });
 
   const getUser = async () => {
     try {
@@ -39,7 +39,9 @@ function Dashboard() {
     } catch (error) {
       const { status } = error.response;
       if (status === 401) {
+        alert('Sesi habis, login kembali')
         localStorage.removeItem('token');
+        navigate('/')
       }
       console.log('Error fetching user data:', error);
     }

@@ -48,7 +48,7 @@ const auth = getAuth(firebaseApp);
 // model machine learning yang sudah dideploy
 const modelMachineLearning='https://nyenyak-model-api-z2dhcxitca-et.a.run.app/prediction'; 
 // frontend yang sudah dideploy
-const urlFrontend='https://nyenyak-web.vercel.app';
+const urlFrontend='https://nyenyak.vercel.app';
 // const urlFrontend='http://localhost:3000';
 
 module.exports = { db, auth, verifyFirebaseToken, authorization, modelMachineLearning, urlFrontend };

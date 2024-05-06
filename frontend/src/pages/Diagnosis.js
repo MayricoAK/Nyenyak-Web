@@ -26,7 +26,7 @@ const Diagnosis = () => {
     };
 
     fetchData();
-  }, [navigate]);
+  });
 
   const getDiagnoses = async () => {
     try {
@@ -35,6 +35,12 @@ const Diagnosis = () => {
       });
       setDiagnoses(response.data);
     } catch (error) {
+      const { status } = error.response;
+      if (status === 401) {
+        alert('Sesi habis, login kembali')
+        localStorage.removeItem('token');
+        navigate('/')
+      }
       console.log('Error fetching diagnosis data:', error);
     }
   };

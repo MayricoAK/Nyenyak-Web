@@ -29,23 +29,23 @@ function MyVerticallyCenteredModal(props) {
         Berikut penjelasan pada pilihan input merujuk pada tingkat keparahan hipertensi (tekanan darah tinggi) yang dimiliki.
         </p>
         <p>
-        Stage 1 Hypertension (Hipertensi Tahap 1): <br></br>
+        <b>Stage 1 Hypertension (Hipertensi Tahap 1):</b><br/>
         Sistolik: 130-139 mmHg/ Diastolik: 80-89 mmHg
         </p>
         <p>
-        Stage 2 Hypertension (Hipertensi Tahap 2):<br></br>
+        <b>Stage 2 Hypertension (Hipertensi Tahap 2):</b><br/>
         Sistolik: 140 mmHg/ Diastolik: 90 mmHg
         </p>
         <p>
-        Advanced Hypertension (Hipertensi Lanjut):<br></br>
+        <b>Advanced Hypertension (Hipertensi Lanjut):</b><br/>
         Sistolik: Di atas 180 mmHg/ Diastolik: Di atas 120 mmHg
         </p>
         <p>
-        Catatan:<br></br>
-        1. Tekanan sistolik adalah tekanan darah pada saat jantung berkontraksi atau memompa darah ke dalam arteri (tekanan maksimum dalam siklus detak jantung).<br></br>
-        2. Tekanan diastolik adalah tekanan darah pada saat jantung beristirahat di antara detak jantung (tekanan minimum dalam siklus detak jantung).<br></br>
-        3. Contoh pengukuran tekanan darah, seperti 120/80 mmHg, menggambarkan tekanan sistolik (120 mmHg) di atas tekanan diastolik (80 mmHg).<br></br>
-        4. Harap cari rujukan ke ahli medis terdekat untuk mendapatkan hasil pengukuran yang akurat<br></br>
+        <b>Catatan:</b><br/>
+        1. Tekanan sistolik adalah tekanan darah pada saat jantung berkontraksi atau memompa darah ke dalam arteri (tekanan maksimum dalam siklus detak jantung).<br/>
+        2. Tekanan diastolik adalah tekanan darah pada saat jantung beristirahat di antara detak jantung (tekanan minimum dalam siklus detak jantung).<br/>
+        3. Contoh pengukuran tekanan darah, seperti 120/80 mmHg, menggambarkan tekanan sistolik (120 mmHg) di atas tekanan diastolik (80 mmHg).<br/>
+        4. Harap cari rujukan ke ahli medis terdekat untuk mendapatkan hasil pengukuran yang akurat<br/>
         5. Untuk hasil pengukuran selain tiga di atas, harap memilih "Hipertensi Tahap 1"
         </p>
       </Modal.Body>
@@ -122,7 +122,12 @@ function FormDiagnosis() {
       navigate(`/diagnosis/${newDiagnosisId}`); // Replace '/diagnosis/${newDiagnosisId}' with your actual detail page URL
     } catch (error) {
       console.log('Error adding diagnosis:', error);
-  
+      const { status } = error.response;
+          if (status === 401) {
+            alert('Sesi habis, login kembali')
+            localStorage.removeItem('token');
+            navigate('/')
+          }
       if (error.response) {
         // Handle error responses from the server (e.g., validation errors)
         const { status, data } = error.response;
