@@ -53,7 +53,7 @@ const ListFilteredDiagnosis = ({ diagnoses }) => {
             </Badge>
           </ListGroup.Item>
         ))}
-      </ListGroup><br />
+      </ListGroup>
       <div className="mt-3 d-flex justify-content-center">
         <Pagination>
           {Array.from({ length: Math.ceil(filteredDiagnoses.length / itemsPerPage) }, (_, i) => (

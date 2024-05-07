@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Badge from 'react-bootstrap/Badge';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Pagination from 'react-bootstrap/Pagination';
 
 const ListDiagnosis = ({ diagnoses }) => {
   const navigate = useNavigate();
@@ -40,7 +41,20 @@ const ListDiagnosis = ({ diagnoses }) => {
           </ListGroup.Item>
         ))}
       </ListGroup>
-      <nav>
+      <div className="mt-3 d-flex justify-content-center">
+        <Pagination>
+        {Array.from({ length: Math.ceil(diagnoses.length / itemsPerPage) }, (_, i) => (
+            <Pagination.Item
+              key={i + 1}
+              active={i + 1 === currentPage}
+              onClick={() => paginate(i + 1)}
+            >
+              {i + 1}
+            </Pagination.Item>
+          ))}
+        </Pagination>
+      </div>
+      {/* <nav>
         <ul className="pagination">
           {Array.from({ length: Math.ceil(diagnoses.length / itemsPerPage) }, (_, i) => (
             <li key={i} className={`page-item ${currentPage === i + 1 ? 'active' : ''}`}>
@@ -50,7 +64,8 @@ const ListDiagnosis = ({ diagnoses }) => {
             </li>
           ))}
         </ul>
-      </nav>
+      </nav> */}
+
     </div>
   );
 };
