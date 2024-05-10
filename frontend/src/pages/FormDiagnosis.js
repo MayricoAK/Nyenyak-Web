@@ -9,7 +9,7 @@ import { BiInfoCircle } from 'react-icons/bi';
 import Table from 'react-bootstrap/Table';
 import { Form } from 'react-bootstrap';
 
-function MyVerticallyCenteredModal(props) {
+function BPmodal(props) {
   return (
     <Modal
       {...props}
@@ -24,6 +24,10 @@ function MyVerticallyCenteredModal(props) {
       </Modal.Header>
       <Modal.Body>
         <h4>Tekanan Darah</h4>
+        <p>
+        <b>Normal:</b><br/>
+        Sistolik: Kurang dari 180 mmHg/ Diastolik: Kurang dari 120 mmHg
+        </p>
         <p>
         Tingkat tekanan darah (blood pressure) dibagi ke dalam beberapa kategori berdasarkan ukuran tekanan sistolik dan diastolik. 
         Berikut penjelasan pada pilihan input merujuk pada tingkat keparahan hipertensi (tekanan darah tinggi) yang dimiliki.
@@ -45,8 +49,7 @@ function MyVerticallyCenteredModal(props) {
         1. Tekanan sistolik adalah tekanan darah pada saat jantung berkontraksi atau memompa darah ke dalam arteri (tekanan maksimum dalam siklus detak jantung).<br/>
         2. Tekanan diastolik adalah tekanan darah pada saat jantung beristirahat di antara detak jantung (tekanan minimum dalam siklus detak jantung).<br/>
         3. Contoh pengukuran tekanan darah, seperti 120/80 mmHg, menggambarkan tekanan sistolik (120 mmHg) di atas tekanan diastolik (80 mmHg).<br/>
-        4. Harap cari rujukan ke ahli medis terdekat untuk mendapatkan hasil pengukuran yang akurat<br/>
-        5. Untuk hasil pengukuran selain tiga di atas, harap memilih "Hipertensi Tahap 1"
+        4. Harap cari rujukan ke ahli medis terdekat untuk mendapatkan hasil pengukuran yang akurat.
         </p>
       </Modal.Body>
       <Modal.Footer>
@@ -72,6 +75,7 @@ function FormDiagnosis() {
   });
   const [bloodPressureOptions, setBloodPressureOptions] = useState([
     { value: '', label: 'Pilih Tekanan Darah', hidden: false }, // Default option
+    { value: 'normal', label: 'Normal', hidden: false },
     { value: 'stage 1', label: 'Hipertensi Tahap 1', hidden: false },
     { value: 'stage 2', label: 'Hipertensi Tahap 2', hidden: false },
     { value: 'advanced', label: 'Hipertensi Lanjut', hidden: false }
@@ -377,7 +381,7 @@ function FormDiagnosis() {
             </div>
             </Form>
       </div>
-              <MyVerticallyCenteredModal
+              <BPmodal
                 show={modalShow}
                 onHide={() => setModalShow(false)}
               />
