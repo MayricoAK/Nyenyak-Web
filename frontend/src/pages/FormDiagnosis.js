@@ -77,9 +77,9 @@ function FormDiagnosis() {
   const [bloodPressureOptions, setBloodPressureOptions] = useState([
     { value: '', label: 'Pilih Tekanan Darah', hidden: false }, // Default option
     { value: 'normal', label: 'Normal', hidden: false },
+    { value: 'advanced', label: 'Hipertensi Lanjut', hidden: false },
     { value: 'stage 1', label: 'Hipertensi Tahap 1', hidden: false },
-    { value: 'stage 2', label: 'Hipertensi Tahap 2', hidden: false },
-    { value: 'advanced', label: 'Hipertensi Lanjut', hidden: false }
+    { value: 'stage 2', label: 'Hipertensi Tahap 2', hidden: false }
   ]);
   const selectRef = useRef(null);
 
