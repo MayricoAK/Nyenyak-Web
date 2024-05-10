@@ -49,8 +49,8 @@ function BPmodal(props) {
           1. Tekanan sistolik adalah tekanan darah pada saat jantung berkontraksi atau memompa darah ke dalam arteri (tekanan maksimum dalam siklus detak jantung).<br/>
           2. Tekanan diastolik adalah tekanan darah pada saat jantung beristirahat di antara detak jantung (tekanan minimum dalam siklus detak jantung).<br/>
           3. Contoh pengukuran tekanan darah, seperti 120/80 mmHg, menggambarkan tekanan sistolik (120 mmHg) di atas tekanan diastolik (80 mmHg).<br/>
-          4. Harap cari rujukan ke ahli medis terdekat untuk mendapatkan hasil pengukuran yang akurat.<br />
-          <p href='https://www.ncbi.nlm.nih.gov/books/NBK570233/table/ch1.tab1/'>Sumber</p> 
+          4. Harap cari rujukan ke ahli medis terdekat untuk mendapatkan hasil pengukuran yang akurat.<br /><br />
+          <a href='https://www.ncbi.nlm.nih.gov/books/NBK570233/table/ch1.tab1/'>Sumber</a>
         </p>
       </Modal.Body>
       <Modal.Footer>
