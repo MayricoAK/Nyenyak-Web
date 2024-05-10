@@ -25,35 +25,36 @@ function BPmodal(props) {
       <Modal.Body>
         <h4>Tekanan Darah</h4>
         <p>
-        <b>Normal:</b><br/>
-        Sistolik: Kurang dari 180 mmHg/ Diastolik: Kurang dari 120 mmHg
+          Tingkat tekanan darah (blood pressure) dibagi ke dalam beberapa kategori berdasarkan ukuran tekanan sistolik dan diastolik. 
+          Berikut penjelasan pada pilihan input merujuk pada tingkat keparahan hipertensi (tekanan darah tinggi) yang dimiliki.
         </p>
         <p>
-        Tingkat tekanan darah (blood pressure) dibagi ke dalam beberapa kategori berdasarkan ukuran tekanan sistolik dan diastolik. 
-        Berikut penjelasan pada pilihan input merujuk pada tingkat keparahan hipertensi (tekanan darah tinggi) yang dimiliki.
+          <b>Normal:</b><br/>
+          Sistolik: Kurang dari 120 mmHg/ Diastolik: Kurang dari 80 mmHg
         </p>
         <p>
-        <b>Stage 1 Hypertension (Hipertensi Tahap 1):</b><br/>
-        Sistolik: 130-139 mmHg/ Diastolik: 80-89 mmHg
+        <p>
+          <b>Advanced Hypertension (Hipertensi Lanjut):</b><br/>
+          Sistolik: 120-139 mmHg/ Diastolik: 80-89 mmHg
+        </p>
+          <b>Stage 1 Hypertension (Hipertensi Tahap 1):</b><br/>
+          Sistolik: 140-159 mmHg/ Diastolik: 90-99 mmHg
         </p>
         <p>
-        <b>Stage 2 Hypertension (Hipertensi Tahap 2):</b><br/>
-        Sistolik: 140 mmHg/ Diastolik: 90 mmHg
-        </p>
-        <p>
-        <b>Advanced Hypertension (Hipertensi Lanjut):</b><br/>
-        Sistolik: Di atas 180 mmHg/ Diastolik: Di atas 120 mmHg
+          <b>Stage 2 Hypertension (Hipertensi Tahap 2):</b><br/>
+          Sistolik: Lebih dari sama dengan 160 mmHg/ Diastolik: Lebih dari sama dengan 100 mmHg
         </p>
         <p>
         <b>Catatan:</b><br/>
-        1. Tekanan sistolik adalah tekanan darah pada saat jantung berkontraksi atau memompa darah ke dalam arteri (tekanan maksimum dalam siklus detak jantung).<br/>
-        2. Tekanan diastolik adalah tekanan darah pada saat jantung beristirahat di antara detak jantung (tekanan minimum dalam siklus detak jantung).<br/>
-        3. Contoh pengukuran tekanan darah, seperti 120/80 mmHg, menggambarkan tekanan sistolik (120 mmHg) di atas tekanan diastolik (80 mmHg).<br/>
-        4. Harap cari rujukan ke ahli medis terdekat untuk mendapatkan hasil pengukuran yang akurat.
+          1. Tekanan sistolik adalah tekanan darah pada saat jantung berkontraksi atau memompa darah ke dalam arteri (tekanan maksimum dalam siklus detak jantung).<br/>
+          2. Tekanan diastolik adalah tekanan darah pada saat jantung beristirahat di antara detak jantung (tekanan minimum dalam siklus detak jantung).<br/>
+          3. Contoh pengukuran tekanan darah, seperti 120/80 mmHg, menggambarkan tekanan sistolik (120 mmHg) di atas tekanan diastolik (80 mmHg).<br/>
+          4. Harap cari rujukan ke ahli medis terdekat untuk mendapatkan hasil pengukuran yang akurat.<br />
+          <p href='https://www.ncbi.nlm.nih.gov/books/NBK570233/table/ch1.tab1/'>Sumber</p> 
         </p>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button onClick={props.onHide}>Tutup</Button>
       </Modal.Footer>
     </Modal>
   );
