@@ -1,0 +1,27 @@
+.label-cell {
+    width: auto; 
+  }
+  
+.form-control {
+    width: 100%; 
+    margin-bottom: 10px;
+  }
+
+.custom-table {
+    overflow-x: auto; 
+  }
+  
+.custom-table td {
+    white-space: nowrap; 
+  }
+  
+.form-control-cell {
+    width: 50%;
+  }
+  
+@media (max-width: 768px) {
+    .form-control-cell {
+      width: 100%; /* Saat layar kecil, setiap kolom form control menjadi lebar penuh */
+    }
+  }
+  

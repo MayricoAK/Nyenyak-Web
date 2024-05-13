@@ -8,6 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import { BiInfoCircle } from 'react-icons/bi';
 import Table from 'react-bootstrap/Table';
 import { Form } from 'react-bootstrap';
+import '../styles/style.css';
 
 function BPmodal(props) {
   return (
@@ -172,11 +173,11 @@ function FormDiagnosis() {
           <h2 className="text-center mb-4">Tambah Diagnosis Baru</h2>
             <Form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <Table borderless responsive>
+              <Table borderless responsive className="custom-table">
               <thead></thead>
                 <tbody>
                   <tr>
-                    <td>Berat Badan (kg)</td>
+                    <td className="label-cell">Berat Badan (kg)</td>
                     <td colSpan={2}>
                       <input
                         type="number"
@@ -191,9 +192,8 @@ function FormDiagnosis() {
                     </td>
                     <td></td>
                   </tr>
-                  {/* Input lainnya... */}
                   <tr>
-                    <td>Tinggi Badan (cm)</td>
+                    <td className="label-cell">Tinggi Badan (cm)</td>
                     <td colSpan={2}>
                     <input
                       type="number"
@@ -208,7 +208,7 @@ function FormDiagnosis() {
                     </td>
                   </tr>
                   <tr>
-                    <td>Durasi Tidur (jam)</td>
+                    <td className="label-cell">Durasi Tidur (jam)</td>
                     <td colSpan={2}>
                     <input
                       type="number"
@@ -225,7 +225,7 @@ function FormDiagnosis() {
                     <td></td>
                   </tr>
                   <tr>
-                    <td>Durasi Aktivitas Fisik (jam)</td>
+                    <td className="label-cell">Durasi Aktivitas Fisik (jam)</td>
                     <td colSpan={2}>
                     <input
                       type="number"
@@ -242,8 +242,8 @@ function FormDiagnosis() {
                     <td></td>
                   </tr>
                   <tr>
-                    <td>Penilaian Kualitas Tidur diri (1-10)</td>
-                    <td>
+                    <td className="label-cell">Penilaian Kualitas Tidur diri (1-10)</td>
+                    <td className="form-control-cell">
                     <input
                       size='30%'
                       type="number"
@@ -258,7 +258,7 @@ function FormDiagnosis() {
                       required
                     />
                     </td>
-                    <td>
+                    <td className="form-control-cell">
                       <Form.Control
                         type="range"
                         min="1"
@@ -273,8 +273,8 @@ function FormDiagnosis() {
                     </td>
                   </tr>
                   <tr>
-                    <td>Penilaian Tingkat Stress diri (1-10)</td>
-                    <td>
+                    <td className="label-cell">Penilaian Tingkat Stress diri (1-10)</td>
+                    <td lassName="form-control-cell">
                     <input
                       type="number"
                       placeholder="Secara subyektif (1-10)"
@@ -288,7 +288,7 @@ function FormDiagnosis() {
                       required
                     />
                     </td>
-                    <td>
+                    <td lassName="form-control-cell">
                     <Form.Control
                         type="range"
                         min="1"
@@ -303,7 +303,7 @@ function FormDiagnosis() {
                     </td>
                   </tr>
                   <tr>
-                    <td>
+                    <td className="label-cell">
                       Tekanan Darah
                       <Button variant="link" onClick={() => setModalShow(true)}>
                         <BiInfoCircle />
@@ -335,7 +335,7 @@ function FormDiagnosis() {
                     <td></td>
                   </tr>
                   <tr>
-                    <td>Detak Jantung (bpm)</td>
+                    <td className="label-cell">Detak Jantung (bpm)</td>
                     <td colSpan={2}>
                     <input
                       type="number"
@@ -351,7 +351,7 @@ function FormDiagnosis() {
                     <td></td>
                   </tr>
                   <tr>
-                    <td>Jumlah Langkah Harian</td>
+                    <td className="label-cell">Jumlah Langkah Harian</td>
                     <td colSpan={2}>
                     <input
                       type="number"
