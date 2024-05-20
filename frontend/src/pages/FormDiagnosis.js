@@ -262,6 +262,7 @@ function FormDiagnosis() {
                       required
                     />
                     </td>
+                    <td></td>
                   </tr>
                   <tr>
                     <td className="label-cell">Penilaian Tingkat Stress diri (1-10)</td>
@@ -279,6 +280,7 @@ function FormDiagnosis() {
                       required
                     />
                     </td>
+                    <td></td>
                   </tr>
                   <tr>
                     <td className="label-cell">
