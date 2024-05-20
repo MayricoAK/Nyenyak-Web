@@ -185,6 +185,8 @@ function FormDiagnosis() {
                         className="form-control me-2"
                         id="weight"
                         name="weight"
+                        min="1"
+                        max="500"
                         value={formData.weight}
                         onChange={handleInputChange}
                         required
@@ -201,6 +203,8 @@ function FormDiagnosis() {
                       className="form-control"
                       id="height"
                       name="height"
+                      min="1"
+                      max="250"
                       value={formData.height}
                       onChange={handleInputChange}
                       required
@@ -243,11 +247,11 @@ function FormDiagnosis() {
                   </tr>
                   <tr>
                     <td className="label-cell">Penilaian Kualitas Tidur diri (1-10)</td>
-                    <td className="form-control-cell">
+                    <td colSpan={2}>
                     <input
                       size='30%'
                       type="number"
-                      placeholder="Secara subyektif (1-10)"
+                      placeholder="Secara subyektif, semakin tinggi nilainya semakin baik (1-10)"
                       min="1"
                       max="10"
                       className="form-control"
@@ -258,26 +262,13 @@ function FormDiagnosis() {
                       required
                     />
                     </td>
-                    <td className="form-control-cell">
-                      <Form.Control
-                        type="range"
-                        min="1"
-                        max="10"
-                        className="form-control mb-3"
-                        id="qualityOfSleep"
-                        name="qualityOfSleep"
-                        value={formData.qualityOfSleep}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </td>
                   </tr>
                   <tr>
                     <td className="label-cell">Penilaian Tingkat Stress diri (1-10)</td>
-                    <td lassName="form-control-cell">
+                    <td colSpan={2}>
                     <input
                       type="number"
-                      placeholder="Secara subyektif (1-10)"
+                      placeholder="Secara subyektif, semakin tinggi nilainya semakin stress (1-10)"
                       min="1"
                       max="10"
                       className="form-control"
@@ -287,19 +278,6 @@ function FormDiagnosis() {
                       onChange={handleInputChange}
                       required
                     />
-                    </td>
-                    <td lassName="form-control-cell">
-                    <Form.Control
-                        type="range"
-                        min="1"
-                        max="10"
-                        className="form-control mb-3"
-                        id="stressLevel"
-                        name="stressLevel"
-                        value={formData.stressLevel}
-                        onChange={handleInputChange}
-                        required
-                      />
                     </td>
                   </tr>
                   <tr>
