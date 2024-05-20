@@ -1,27 +1,36 @@
+.container {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.table-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
 .label-cell {
-    width: auto; 
-  }
-  
+  width: auto;
+  padding-right: 5px;
+}
+
 .form-control {
-    width: 100%; 
-    margin-bottom: 10px;
-  }
+  width: 100%;
+  margin-bottom: 10px;
+}
 
 .custom-table {
-    overflow-x: auto; 
-  }
-  
+  overflow-x: auto;
+  width: 100%;
+}
+
 .custom-table td {
-    white-space: nowrap; 
-  }
-  
-.form-control-cell {
-    width: 50%;
-  }
-  
+  white-space: nowrap;
+  padding: 0; /* Menghilangkan padding default antar sel */
+}
+
 @media (max-width: 768px) {
-    .form-control-cell {
-      width: 100%; /* Saat layar kecil, setiap kolom form control menjadi lebar penuh */
-    }
+  .form-control-cell {
+    width: 100%; /* Saat layar kecil, setiap kolom form control menjadi lebar penuh */
   }
-  
+}

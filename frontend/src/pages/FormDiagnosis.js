@@ -176,23 +176,23 @@ function FormDiagnosis() {
               <Table borderless responsive className="custom-table">
               <thead></thead>
                 <tbody>
-                  <tr>
-                    <td className="label-cell">Berat Badan (kg)</td>
-                    <td colSpan={2}>
-                      <input
-                        type="number"
-                        placeholder="Masukkan berat badan Anda (kg)"
-                        className="form-control me-2"
-                        id="weight"
-                        name="weight"
-                        min="1"
-                        max="500"
-                        value={formData.weight}
-                        onChange={handleInputChange}
-                        required
-                      />
-                    </td>
-                  </tr>
+                <tr>
+                  <td className="label-cell">Berat Badan (kg)</td>
+                  <td>
+                    <input
+                      type="number"
+                      placeholder="Masukkan berat badan Anda (kg)"
+                      className="form-control"
+                      id="weight"
+                      name="weight"
+                      min="1"
+                      max="500"
+                      value={formData.weight}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </td>
+                </tr>
                   <tr>
                     <td className="label-cell">Tinggi Badan (cm)</td>
                     <td>
@@ -246,7 +246,6 @@ function FormDiagnosis() {
                     <td className="label-cell">Penilaian Kualitas Tidur diri (1-10)</td>
                     <td>
                     <input
-                      size='30%'
                       type="number"
                       placeholder="Secara subyektif, semakin tinggi nilainya semakin baik (1-10)"
                       min="1"
@@ -322,7 +321,6 @@ function FormDiagnosis() {
                       required
                     />
                     </td>
-                    <td></td>
                   </tr>
                   <tr>
                     <td className="label-cell">Jumlah Langkah Harian</td>
@@ -338,7 +336,6 @@ function FormDiagnosis() {
                       required
                     />
                     </td>
-                    <td></td>
                   </tr>
                   <tr>
                     <td></td>
@@ -355,6 +352,7 @@ function FormDiagnosis() {
             </div>
             </Form>
       </div>
+            <div className="col-md-6"></div>
               <BPmodal
                 show={modalShow}
                 onHide={() => setModalShow(false)}
