@@ -192,11 +192,10 @@ function FormDiagnosis() {
                         required
                       />
                     </td>
-                    <td></td>
                   </tr>
                   <tr>
                     <td className="label-cell">Tinggi Badan (cm)</td>
-                    <td colSpan={2}>
+                    <td>
                     <input
                       type="number"
                       placeholder="Masukkan tinggi badan Anda (cm)"
@@ -213,7 +212,7 @@ function FormDiagnosis() {
                   </tr>
                   <tr>
                     <td className="label-cell">Durasi Tidur (jam)</td>
-                    <td colSpan={2}>
+                    <td>
                     <input
                       type="number"
                       placeholder="Masukkan durasi tidur Anda"
@@ -226,11 +225,10 @@ function FormDiagnosis() {
                       required
                     />
                     </td>
-                    <td></td>
                   </tr>
                   <tr>
                     <td className="label-cell">Durasi Aktivitas Fisik (jam)</td>
-                    <td colSpan={2}>
+                    <td>
                     <input
                       type="number"
                       placeholder="Masukkan durasi kegiatan fisik Anda dalam sehari (jam)"
@@ -243,11 +241,10 @@ function FormDiagnosis() {
                       required
                     />
                     </td>
-                    <td></td>
                   </tr>
                   <tr>
                     <td className="label-cell">Penilaian Kualitas Tidur diri (1-10)</td>
-                    <td colSpan={2}>
+                    <td>
                     <input
                       size='30%'
                       type="number"
@@ -262,11 +259,10 @@ function FormDiagnosis() {
                       required
                     />
                     </td>
-                    <td></td>
                   </tr>
                   <tr>
                     <td className="label-cell">Penilaian Tingkat Stress diri (1-10)</td>
-                    <td colSpan={2}>
+                    <td>
                     <input
                       type="number"
                       placeholder="Secara subyektif, semakin tinggi nilainya semakin stress (1-10)"
@@ -280,7 +276,6 @@ function FormDiagnosis() {
                       required
                     />
                     </td>
-                    <td></td>
                   </tr>
                   <tr>
                     <td className="label-cell">
@@ -289,7 +284,7 @@ function FormDiagnosis() {
                         <BiInfoCircle />
                       </Button>
                     </td>
-                    <td colSpan={2}>
+                    <td>
                       <select
                         ref={selectRef}
                         className="form-control"
@@ -312,11 +307,10 @@ function FormDiagnosis() {
                         ))}
                       </select>
                     </td>
-                    <td></td>
                   </tr>
                   <tr>
                     <td className="label-cell">Detak Jantung (bpm)</td>
-                    <td colSpan={2}>
+                    <td>
                     <input
                       type="number"
                       placeholder="Masukkan detak jantung Anda dalam satu menit (bpm)"
@@ -332,7 +326,7 @@ function FormDiagnosis() {
                   </tr>
                   <tr>
                     <td className="label-cell">Jumlah Langkah Harian</td>
-                    <td colSpan={2}>
+                    <td>
                     <input
                       type="number"
                       placeholder="Masukkan jumlah langkah harian Anda"
@@ -355,7 +349,6 @@ function FormDiagnosis() {
                       Submit
                     </button>
                     </td>
-                    <td></td>
                   </tr>
                 </tbody>
               </Table>
